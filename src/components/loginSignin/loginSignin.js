@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from "react";
 import "./loginSignin.css";
 import { useUser } from '../../context/UserContext';
+import { signInUser, signUpUser } from '../../services/barkBaseClient';
 
 export default function LoginSignin() {
   const [userEmail, setEmail] = useState("");
@@ -14,6 +15,11 @@ export default function LoginSignin() {
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
+      const auth = await signInUser(userEmail, password);
+      await setUser(auth.email);
+      setLoading(false);
+      history.replace('/');
     } catch (error) {
       throw error;
     }
@@ -21,6 +27,11 @@ export default function LoginSignin() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
+      const auth = await signUpUser(userEmail, password);
+      await setUser(auth.email);
+      setLoading(false);
+      history.replace('/');
     } catch (error) {
       throw error;
     }
@@ -60,6 +71,7 @@ export default function LoginSignin() {
       <button style={{ backgroundColor: 'white', border: 'none' }} className="" type="button" onClick={() => setLogin(!login)}>
         {login ? "do you need to Sign up?" : "do you need to Log in?"}
       </button>
+      {isLoading ? <h1>....Loading</h1> : null}
     </>
   );
 }
