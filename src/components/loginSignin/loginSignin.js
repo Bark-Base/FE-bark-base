@@ -1,11 +1,14 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from "react";
 import "./loginSignin.css";
+import { useUser } from '../../context/UserContext';
 
 export default function LoginSignin() {
   const [userEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+  const { setUser } = useUser;
+  const [isLoading, setLoading] = useState(false);
   const history = useHistory();
 
   const handleLogIn = async (e) => {
