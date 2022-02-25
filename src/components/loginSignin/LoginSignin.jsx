@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from "react";
-import "./loginSignin.css";
+import "./LoginSignin.css";
 import { useUser } from '../../context/UserContext';
 import { signInUser, signUpUser } from '../../services/barkBaseClient';
 

@@ -3,16 +3,9 @@ import { createContext, useContext, useMemo, useState } from "react";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-//   const session = supabase.auth.session();
-  const [user, setUser] = useState(
-    // session ? { id: session.user.id, email: session.user.email } : {}
-  );
-  
+  const [user, setUser] = useState();
 
-  const value = useMemo(
-    () => ({ user, setUser }),
-    [user]
-  );
+  const value = useMemo(() => ({ user, setUser }), [user]);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
