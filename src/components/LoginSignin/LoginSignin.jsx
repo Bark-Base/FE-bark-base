@@ -8,7 +8,7 @@ export default function LoginSignin() {
   const [userEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
-  const { setUser } = useUser;
+  const { setUser } = useUser();
   const [isLoading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -16,8 +16,8 @@ export default function LoginSignin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const auth = await signInUser(userEmail, password);
-      await setUser(auth);
+      const { user } = await signInUser(userEmail, password);
+      await setUser(user);
       setLoading(false);
       history.replace('/');
     } catch (error) {
@@ -28,8 +28,8 @@ export default function LoginSignin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const auth = await signUpUser(userEmail, password);
-      await setUser(auth);
+      const { user } = await signUpUser(userEmail, password);
+      await setUser({ user });
       setLoading(false);
       history.replace('/');
     } catch (error) {
