@@ -7,6 +7,7 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState(
     // session ? { id: session.user.id, email: session.user.email } : {}
   );
+  
 
   const value = useMemo(
     () => ({ user, setUser }),

@@ -17,7 +17,7 @@ export default function LoginSignin() {
     try {
       setLoading(true);
       const auth = await signInUser(userEmail, password);
-      await setUser(auth.email);
+      await setUser(auth);
       setLoading(false);
       history.replace('/');
     } catch (error) {
@@ -29,7 +29,7 @@ export default function LoginSignin() {
     try {
       setLoading(true);
       const auth = await signUpUser(userEmail, password);
-      await setUser(auth.email);
+      await setUser(auth);
       setLoading(false);
       history.replace('/');
     } catch (error) {
