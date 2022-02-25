@@ -10,9 +10,10 @@ const URL = 'http://localhost:7890';
   }
   
   export async function signInUser(email, password) {
-    const { user, error } = await request.post(`${URL}/api/v1/auth/session`).send({ email, password });
+    const res= await request.post(`${URL}/api/v1/auth/session`).send({ email, password });
+    const { error } = res.body
     if (error) throw error;
-    return user;
+    return res.body;
   }
 
 
