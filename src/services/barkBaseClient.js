@@ -1,6 +1,15 @@
-export async function signInUser(email, password) {
-  // expect a user object and a cookie
-  }
+import request from 'superagent';
+
+const URL = 'https://boiling-medow-81167.herokuapp.com/api/v1'
+
   export async function signUpUser(email, password) {
-    // expect a user object and a cookie that auto-sets?
+    const { user, error } = await request.post(`${URL}/auth`).send({ email, password });
+    if (error) throw error;
+    return user;
+  }
+  
+  export async function signInUser(email, password) {
+    const { user, error } = await request.post(`${URL}/auth`).send({ email, password });
+    if (error) throw error;
+    return user;
   }

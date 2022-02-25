@@ -22,6 +22,12 @@ function App() {
         <Route path={"/facts"}>
           <Facts />
         </Route>
+        <Route path={"/pets"}>
+        </Route>
+        <Route path={"/pets/edit"}>
+        </Route>
+        <Route path={"/contacts"}>
+        </Route>
       </Switch>
     </Router>
   );

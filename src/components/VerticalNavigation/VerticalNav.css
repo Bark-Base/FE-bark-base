@@ -7,7 +7,7 @@
     margin: 1rem;
 }
 
-button {
+.vert-nav button {
     margin: .5rem;
     height: 8rem;
     width: 8rem;
@@ -18,6 +18,6 @@ button {
     font-size: larger;
 }
 
-button:hover {
+.vert-nav button:hover {
 cursor: pointer;
 }
