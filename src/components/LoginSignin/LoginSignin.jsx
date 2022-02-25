@@ -16,7 +16,7 @@ export default function LoginSignin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const { user, message } = await signInUser(userEmail, password);
+      const { user } = await signInUser(userEmail, password);
       await setUser(user);
       setLoading(false);
       history.replace('/');
@@ -28,8 +28,7 @@ export default function LoginSignin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const { user, message } = await signUpUser(userEmail, password);
-      console.log(message, user);
+      const { user } = await signUpUser(userEmail, password);
       await setUser({ user });
       setLoading(false);
       history.replace('/');
