@@ -16,8 +16,7 @@ export default function LoginSignin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const { user } = await signInUser(userEmail, password);
-      console.log(user);
+      const { user, message } = await signInUser(userEmail, password);
       await setUser(user);
       setLoading(false);
       history.replace('/');
