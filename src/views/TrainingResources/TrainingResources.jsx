@@ -4,6 +4,8 @@ export default function TrainingResources() {
 
 
 return (
+
+    // testing accordion component. 
     <>
     <Accordion heading='karl'
     copy='test'/>
