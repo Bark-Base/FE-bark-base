@@ -16,5 +16,12 @@ const URL = 'http://localhost:7890';
     return res.body;
   }
 
+  export async function getUser() {
+    const res= await request.get(`${URL}/api/v1/user`).withCredentials();
+    const { error } = res.body
+    if (error) throw error;
+    return res.body;
+  }
+
 
   // send future requests for user-related content using .withcredentials

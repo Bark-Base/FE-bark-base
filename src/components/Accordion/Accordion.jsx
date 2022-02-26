@@ -3,7 +3,7 @@ import "./Accordion.css";
 
 export default function Accordion({heading, copy}) {
 
-const [hidden, setHidden] = useState(true)
+const [hidden, setHidden] = useState(false)
 
   return (
     <>
