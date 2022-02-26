@@ -1,0 +1,25 @@
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    color: black;
+    cursor: pointer;
+    padding: .5rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+.accordion-title:hover {
+    background-color: #ccc;
+  }
+  
+.accordion-panel {
+    padding: .1rem .1rem .1rem 1rem;
+    background-color: white;
+    overflow: scroll;
+    font-size: small;
+  }

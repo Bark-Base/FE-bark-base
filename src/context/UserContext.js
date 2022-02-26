@@ -1,11 +1,21 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { getUser } from "../services/barkBaseClient";
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
-
   const value = useMemo(() => ({ user, setUser }), [user]);
+
+useEffect(() => {
+  async function getAndSetUser() {
+    const currentUser = await getUser()
+    console.log(currentUser)
+    setUser(currentUser)
+  }
+getAndSetUser()
+}, [])
+
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
