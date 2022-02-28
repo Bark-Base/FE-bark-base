@@ -8,7 +8,7 @@ export default function AddPet() {
   const { user } = useUser();
   const history = useHistory();
 
-  const [pet, setPet] = useState({});
+  const [pet, setPet] = useState({name:'', birthday:''});
   const [trainer, setTrainer] = useState({
     type: "trainer",
   });
