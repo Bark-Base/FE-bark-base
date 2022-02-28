@@ -3,7 +3,6 @@ const URL = "http://localhost:7890";
 
 export async function addPet({ ownerId, name, birthday=null, imageUrl=null }) {
   try {
-    console.log(JSON.stringify({ ownerId, name, birthday, imageUrl  }))
     const res = await fetch(`${URL}/api/v1/pet`, {
       credentials: "include",
       mode: "cors",
@@ -34,3 +33,17 @@ export async function addContact({ type='', name='', phone=null, email=null, add
     return {};
   }
 }
+
+// export async function getPets(ownerId) {
+//   try {
+//   const res = await fetch(`${URL}/api/v1/pet/all/${ownerId}`, {
+//     credentials: "include",
+//     mode: "cors",
+//   });
+//   const { body } = res.json();
+//   return body;
+// } catch (error) {
+//   console.error(error.message);
+//   return [];
+// }
+// }

@@ -5,7 +5,7 @@ import "./Home.css";
 
 export default function Home() {
 
-  const {user} = useUser()
+  // const {user} = useUser()
 
   return (
     <section className='homepage'>
