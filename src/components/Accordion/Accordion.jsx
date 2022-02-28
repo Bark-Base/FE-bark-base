@@ -7,8 +7,8 @@ const [hidden, setHidden] = useState(false)
 
   return (
     <>
-      <button className="accordion-title" onClick={() => setHidden(!hidden)}><span>{heading}</span><span>{hidden ? '-' : '+'}</span></button>
-      { hidden && <div className="accordion-panel">{copy}</div>
+      <button type='button' className="accordion-title" onClick={() => setHidden(!hidden)}><span>{heading}</span><span>{hidden ? '-' : '+'}</span></button>
+      { hidden && <div className="accordion-panel" style={{display: 'flex', flexDirection: 'column'}}>{copy}</div>
       }
       
     </>
