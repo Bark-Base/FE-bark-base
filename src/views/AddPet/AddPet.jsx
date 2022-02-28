@@ -26,7 +26,7 @@ export default function AddPet() {
     await addContact({ petId: addedPet.id, ownerId: user.id, ...trainer });
     await addContact({ petId: addedPet.id, ownerId: user.id, ...walker });
     await addContact({ petId: addedPet.id, ownerId: user.id, ...vet });
-    history.push(`/pet/${pet.id}`);
+    history.push(`/pets`);
   };
 
   return (

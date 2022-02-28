@@ -38,7 +38,7 @@ export default function LoginSignin() {
   };
 
   return (
-    <>
+    <section style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "2rem"}}>
       {login ? <div>Log In</div> : <div>Sign up</div>}
 
       <form
@@ -72,6 +72,6 @@ export default function LoginSignin() {
         {login ? "do you need to Sign up?" : "do you need to Log in?"}
       </button>
       {isLoading ? <h1>....Loading</h1> : null}
-    </>
+    </section>
   );
 }
