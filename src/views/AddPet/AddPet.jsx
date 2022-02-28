@@ -80,7 +80,7 @@ export default function AddPet() {
                 }
               />
               <input
-                type="url"
+                type="email"
                 id="email"
                 placeholder="email"
                 value={vet.email}
@@ -131,7 +131,7 @@ export default function AddPet() {
                 }
               />
               <input
-                type="url"
+                type="email"
                 id="email"
                 placeholder="email"
                 value={trainer.email}
@@ -182,7 +182,7 @@ export default function AddPet() {
                 }
               />
               <input
-                type="url"
+                type="email"
                 id="email"
                 placeholder="email"
                 value={walker.email}
