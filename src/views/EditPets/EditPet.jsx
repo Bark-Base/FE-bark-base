@@ -1,21 +1,11 @@
-import Accordion from "../../components/Accordion/Accordion";
 
 export default function EditPet() {
 
+return (
+  <section>
+    edit info for one pet
+  </section>
 
-
-    return (
-        <>
-        <button>{}</button>
-        <button>Remove Pet</button>
-        <input />
-        <input />
-<Accordion />
-<Accordion />
-<Accordion />
-<button>cancel</button>
-<button>save</button>
-        </>
     )
 
 }
