@@ -4,7 +4,7 @@ import { getUser } from "../services/barkBaseClient";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
   const value = useMemo(() => ({ user, setUser }), [user]);
 
 useEffect(() => {
