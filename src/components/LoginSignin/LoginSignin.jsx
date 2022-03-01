@@ -29,7 +29,8 @@ export default function LoginSignin() {
     try {
       setLoading(true);
       const { user } = await signUpUser(userEmail, password);
-      await setUser({ user });
+      console.log(user)
+      await setUser({user});
       setLoading(false);
       history.replace('/');
     } catch (error) {
