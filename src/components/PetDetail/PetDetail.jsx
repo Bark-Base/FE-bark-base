@@ -2,8 +2,8 @@ import { useState } from "react";
 import Accordion from "../Accordion/Accordion";
 
 export default function PetDetail({ handleSubmit, pet }) {
-  const [currentPet, setCurrentPet] = useState({ ...pet });
-
+  const [currentPet, setCurrentPet] = useState( pet );
+  console.log(currentPet);
   return (
     <form
       onSubmit={handleSubmit}
@@ -27,7 +27,7 @@ export default function PetDetail({ handleSubmit, pet }) {
         Birthday
         <input
           type="text"
-          placeholder={currentPet.birthday}
+          placeholder='birthday here'
           value={currentPet.birthday}
           onChange={(e) =>
             setCurrentPet((previousState) => {
@@ -44,7 +44,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={currentPet.contacts[0].name}
-              placeholder={currentPet.contacts[0].name}
+              placeholder='trainer contact'
               value={currentPet.contacts[0].name}
               onChange={(e) =>
                 setCurrentPet((previousState) => {
