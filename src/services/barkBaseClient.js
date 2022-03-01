@@ -11,7 +11,8 @@ export async function signUpUser(email, password) {
   });
   const { error } = res.body;
   if (error) throw error;
-  return res.body;
+  const body = await res.json();
+  return body;
 }
 
 export async function signInUser(email, password) {
@@ -21,7 +22,8 @@ export async function signInUser(email, password) {
   });
   const { error } = res.body;
   if (error) throw error;
-  return res.body;
+  const body = await res.json();
+  return body;
 }
 
 export async function getUser() {
