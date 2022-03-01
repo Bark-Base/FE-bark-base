@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 import AddPet from "./views/AddPet/AddPet";
 import AuthView from "./views/AuthView/AuthView";
 import Facts from "./views/Facts/Facts";
