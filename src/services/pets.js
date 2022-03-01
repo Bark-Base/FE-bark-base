@@ -34,16 +34,17 @@ export async function addContact({ type='', name='', phone=null, email=null, add
   }
 }
 
-// export async function getPets(ownerId) {
-//   try {
-//   const res = await fetch(`${URL}/api/v1/pet/all/${ownerId}`, {
-//     credentials: "include",
-//     mode: "cors",
-//   });
-//   const { body } = res.json();
-//   return body;
-// } catch (error) {
-//   console.error(error.message);
-//   return [];
-// }
-// }
+export async function getPets(ownerId) {
+  try {
+  const res = await fetch(`${URL}/api/v1/pet/all/${ownerId}`, {
+    credentials: "include",
+    method: "get",
+    mode: "cors",
+  });
+  const body  = res.json();
+  return body;
+} catch (error) {
+  console.error(error.message);
+  return [];
+}
+}
