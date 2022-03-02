@@ -34,11 +34,11 @@ export default function AddPet() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // does this need a promiseAll?
-    const addedPet = await addPet({ownerId: user.ownerId, birthday: pet.birthday || null, name: pet.name});
+    const addedPet = await addPet({ownerId: user.ownerId, birthday: pet.birthday, name: pet.name});
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...vet });
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...trainer });
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...walker });
-    history.push(`/pets`);
+    await history.push(`/pets`);
   };
 
   return (
