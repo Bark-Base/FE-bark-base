@@ -6,7 +6,7 @@ export default function NavigationBar() {
   const { user, setUser } = useUser();
 
   const handleLogout = async() => {
-    await fetch(`${process.env.BASE_URL}/api/v1/auth/session`, {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/session`, {
       credentials: "include",
       mode: "cors",
       method: "DELETE"
