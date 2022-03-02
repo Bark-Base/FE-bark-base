@@ -19,7 +19,7 @@ export default function LoginSignin() {
       const { user } = await signInUser(userEmail, password);
       await setUser(user);
       setLoading(false);
-      history.replace('/');
+      await history.replace('/');
     } catch (error) {
       throw error;
     }
@@ -30,9 +30,9 @@ export default function LoginSignin() {
       setLoading(true);
       const { user } = await signUpUser(userEmail, password);
       console.log(user)
-      await setUser({user});
+      await setUser(user);
       setLoading(false);
-      history.replace('/');
+      await history.replace('/');
     } catch (error) {
       throw error;
     }

@@ -16,9 +16,12 @@ export async function signUpUser(email, password) {
 }
 
 export async function signInUser(email, password) {
-  const res = await fetch(`${URL}/api/v1/auth/session`).send({
-    email,
-    password,
+  const res = await fetch(`${URL}/api/v1/auth/session`, {
+    credentials: "include",
+    mode: "cors",
+    method: "post",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, password }),
   });
   const { error } = res.body;
   if (error) throw error;

@@ -1,15 +1,24 @@
 import { useHistory, NavLink } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import "./VerticalNav.css";
+import { useState, useEffect } from 'react';
 
 export default function VerticalNav() {
     const {user, setUser} = useUser()
     const history = useHistory();
+    const [ isLoading, setLoading ]= useState(false);
 
     function handleClick(path) {
         history.push(path);
       }
-
+      
+      useEffect(() => {
+        setLoading(true);
+        user? setLoading(false) : setLoading(true);
+      
+        
+      }, [user])
+      
     //   const handleLogout = async() => {
     //     await fetch(`${URL}/api/v1/auth/session`, {
     //       credentials: "include",

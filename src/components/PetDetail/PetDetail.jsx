@@ -2,11 +2,39 @@ import { useState } from "react";
 import Accordion from "../Accordion/Accordion";
 
 export default function PetDetail({ handleSubmit, pet }) {
-  const [currentPet, setCurrentPet] = useState( pet );
-  console.log(currentPet);
+  const [currentPet, setCurrentPet] = useState(pet);
+  const { contacts } = currentPet;
+  const [vet, setVet] = useState({
+    type: "vet",
+    name: contacts[0].name,
+    email: contacts[0].email,
+    phone: contacts[0].phone,
+    address: contacts[0].address,
+    contact_id:contacts[0].contact_id
+  });
+  
+  const [trainer, setTrainer] = useState({
+    type: "trainer",
+    name: contacts[1].name,
+    email: contacts[1].email,
+    phone: contacts[1].phone,
+    address: contacts[1].address,
+    contact_id:contacts[0].contact_id
+  });
+  const [walker, setWalker] = useState({
+    type: "walker",
+    name: contacts[2].name,
+    email: contacts[2].email,
+    phone: contacts[2].phone,
+    address: contacts[2].address,
+    contact_id:contacts[0].contact_id
+  });
+
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={(e) =>
+        handleSubmit(e, { ...currentPet, contacts: [vet, trainer, walker] })
+      }
       style={{ display: "flex", flexDirection: "column" }}
     >
       <label>
@@ -26,8 +54,8 @@ export default function PetDetail({ handleSubmit, pet }) {
       <label>
         Birthday
         <input
-          type="text"
-          placeholder='birthday here'
+          type="date"
+          placeholder={currentPet.birthday}
           value={currentPet.birthday}
           onChange={(e) =>
             setCurrentPet((previousState) => {
@@ -36,51 +64,50 @@ export default function PetDetail({ handleSubmit, pet }) {
           }
         />
       </label>
-
       <Accordion
-        heading={currentPet.contacts[0].type}
+        heading={vet.type}
         copy={
           <>
             <input
               type="text"
-              id={currentPet.contacts[0].name}
-              placeholder='trainer contact'
-              value={currentPet.contacts[0].name}
+              id={vet.name}
+              placeholder="vet name"
+              value={vet.name}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setVet((previousState) => {
                   return { ...previousState, name: e.target.value };
                 })
               }
             />
             <input
               type="email"
-              id={currentPet.contacts[0].email}
-              placeholder={currentPet.contacts[0].email}
-              value={currentPet.contacts[0].email}
+              id={vet.email}
+              placeholder="email"
+              value={vet.email}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setVet((previousState) => {
                   return { ...previousState, email: e.target.value };
                 })
               }
             />
             <input
               type="text"
-              id={currentPet.contacts[0].phone}
-              placeholder={currentPet.contacts[0].phone}
-              value={currentPet.contacts[0].phone}
+              id={vet.phone}
+              placeholder={vet.phone}
+              value={vet.phone}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setVet((previousState) => {
                   return { ...previousState, phone: e.target.value };
                 })
               }
             />
             <input
               type="text"
-              id={currentPet.contacts[0].address}
-              placeholder={currentPet.contacts[0].address}
-              value={currentPet.contacts[0].address}
+              id={vet.address}
+              placeholder={vet.address}
+              value={vet.address}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setVet((previousState) => {
                   return { ...previousState, address: e.target.value };
                 })
               }
@@ -89,49 +116,49 @@ export default function PetDetail({ handleSubmit, pet }) {
         }
       />
       <Accordion
-        heading={currentPet.contacts[1].type}
+        heading={trainer.type}
         copy={
           <>
             <input
               type="text"
-              id={currentPet.contacts[1].name}
-              placeholder={currentPet.contacts[1].name}
-              value={currentPet.contacts[1].name}
+              id={trainer.name}
+              placeholder={trainer.name}
+              value={trainer.name}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setTrainer((previousState) => {
                   return { ...previousState, name: e.target.value };
                 })
               }
             />
             <input
               type="email"
-              id={currentPet.contacts[1].email}
-              placeholder={currentPet.contacts[1].email}
-              value={currentPet.contacts[1].email}
+              id={trainer.email}
+              placeholder={trainer.email}
+              value={trainer.email}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setTrainer((previousState) => {
                   return { ...previousState, email: e.target.value };
                 })
               }
             />
             <input
               type="text"
-              id={currentPet.contacts[1].phone}
-              placeholder={currentPet.contacts[1].phone}
-              value={currentPet.contacts[1].phone}
+              id={trainer.phone}
+              placeholder={trainer.phone}
+              value={trainer.phone}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setTrainer((previousState) => {
                   return { ...previousState, phone: e.target.value };
                 })
               }
             />
             <input
               type="text"
-              id={currentPet.contacts[1].address}
-              placeholder={currentPet.contacts[1].address}
-              value={currentPet.contacts[1].address}
+              id={trainer.address}
+              placeholder={trainer.address}
+              value={trainer.address}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setTrainer((previousState) => {
                   return { ...previousState, address: e.target.value };
                 })
               }
@@ -140,49 +167,49 @@ export default function PetDetail({ handleSubmit, pet }) {
         }
       />
       <Accordion
-        heading={currentPet.contacts[2].type}
+        heading={walker.type}
         copy={
           <>
             <input
               type="text"
-              id={currentPet.contacts[2].name}
-              placeholder={currentPet.contacts[2].name}
-              value={currentPet.contacts[2].name}
+              id={walker.name}
+              placeholder={walker.name}
+              value={walker.name}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setWalker((previousState) => {
                   return { ...previousState, name: e.target.value };
                 })
               }
             />
             <input
               type="email"
-              id={currentPet.contacts[2].email}
-              placeholder={currentPet.contacts[2].email}
-              value={currentPet.contacts[2].email}
+              id={walker.email}
+              placeholder={walker.email}
+              value={walker.email}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setWalker((previousState) => {
                   return { ...previousState, email: e.target.value };
                 })
               }
             />
             <input
               type="text"
-              id={currentPet.contacts[2].phone}
-              placeholder={currentPet.contacts[2].phone}
-              value={currentPet.contacts[2].phone}
+              id={walker.phone}
+              placeholder={walker.phone}
+              value={walker.phone}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setWalker((previousState) => {
                   return { ...previousState, phone: e.target.value };
                 })
               }
             />
             <input
               type="text"
-              id={currentPet.contacts[2].address}
-              placeholder={currentPet.contacts[2].address}
-              value={currentPet.contacts[2].address}
+              id={walker.address}
+              placeholder={walker.address}
+              value={walker.address}
               onChange={(e) =>
-                setCurrentPet((previousState) => {
+                setWalker((previousState) => {
                   return { ...previousState, address: e.target.value };
                 })
               }
