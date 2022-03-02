@@ -1,9 +1,6 @@
-const URL = "http://localhost:7890";
-// const URL = 'https://boiling-meadow-81167.herokuapp.com'
-
 export async function signUpUser(email, password) {
   try {
-    const res = await fetch(`${URL}/api/v1/auth`, {
+    const res = await fetch(`${process.env.URL}/api/v1/auth`, {
       credentials: "include",
       mode: "cors",
       method: "post",
@@ -19,7 +16,7 @@ export async function signUpUser(email, password) {
 }
 
 export async function signInUser(email, password) {
-  const res = await fetch(`${URL}/api/v1/auth/session`, {
+  const res = await fetch(`${process.env.URL}/api/v1/auth/session`, {
     credentials: "include",
     mode: "cors",
     method: "post",
@@ -33,7 +30,7 @@ export async function signInUser(email, password) {
 }
 
 export async function getUser() {
-  const res = await fetch(`${URL}/api/v1/auth/user`, {
+  const res = await fetch(`${process.env.URL}/api/v1/auth/user`, {
     credentials: "include",
     mode: "cors",
   });
