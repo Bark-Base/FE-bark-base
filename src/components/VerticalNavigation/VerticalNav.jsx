@@ -18,7 +18,7 @@ export default function VerticalNav() {
       }, [user])
 
       const handleLogout = async() => {
-        await fetch(`${process.env.URL}/api/v1/auth/session`, {
+        await fetch(`${process.env.BASE_URL}/api/v1/auth/session`, {
           credentials: "include",
           mode: "cors",
           method: "delete"
