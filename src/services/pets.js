@@ -1,5 +1,5 @@
-const URL = "http://localhost:7890";
-// const URL = 'https://boiling-meadow-81167.herokuapp.com'
+// const URL = "http://localhost:7890";
+const URL = 'https://boiling-meadow-81167.herokuapp.com'
 
 export async function addPet({ ownerId, name, birthday='', imageUrl='' }) {
   try {
@@ -53,7 +53,7 @@ export async function addContact({ type='', name='', phone='', email='', address
 
 export async function getPets(ownerId) {
   try {
-  const res = await fetch(`${URL}/api/v1/pet/all/${ownerId}`, {
+  const res = await fetch(`${URL}/api/v1/pet/all/${+ownerId}`, {
     credentials: "include",
     method: "get",
     mode: "cors",
@@ -68,7 +68,7 @@ export async function getPets(ownerId) {
 export async function updateContacts({contact_id, name, email, phone, address} ) {
   try {
     console.log(contact_id, name, email, phone, address)
-  const res = await fetch(`${URL}/api/v1/contact/${contact_id}`, {
+  const res = await fetch(`${URL}/api/v1/contact/${+contact_id}`, {
     credentials: "include",
     mode: "cors",
     method: "patch",
