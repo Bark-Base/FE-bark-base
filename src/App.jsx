@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import Template from "./components/Layout/Template";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import AddPet from "./views/AddPet/AddPet";
 import AuthView from "./views/AuthView/AuthView";
@@ -17,29 +18,36 @@ function App() {
         <Route exact path={"/"}>
           <Home />
         </Route>
+
         <Route path={"/auth"}>
-          <AuthView />
-          <NavigationBar />
+          <Template>
+            <AuthView />
+          </Template>
         </Route>
         <Route path={"/training"}>
-          <TrainingResources />
-          <NavigationBar />
+          <Template>
+            <TrainingResources />
+          </Template>
         </Route>
         <Route path={"/facts"}>
-          <Facts />
-          <NavigationBar />
+          <Template>
+            <Facts />
+          </Template>
         </Route>
         <Route exact path={"/pets"}>
-          <Pets/>
-          <NavigationBar />
+          <Template>
+            <Pets />
+          </Template>
         </Route>
         <Route exact path={"/pets/add"}>
-          <AddPet />
-          <NavigationBar />
+          <Template>
+            <AddPet />
+          </Template>
         </Route>
         <Route path={"/contacts"}>
-          <Contacts />
-          <NavigationBar />
+          <Template>
+            <Contacts />
+          </Template>
         </Route>
       </Switch>
     </Router>

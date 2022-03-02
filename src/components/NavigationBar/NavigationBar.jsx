@@ -24,7 +24,7 @@ export default function NavigationBar() {
     <button>home</button>
   </NavLink>
   {!user.email ? (<NavLink  to="/auth">
-    <button>Login / Sign Up</button>
+    <button>Login</button>
   </NavLink>) : (<NavLink exact to="/">
     <button onClick={() => handleLogout()}>Sign Out</button>
   </NavLink>)}
