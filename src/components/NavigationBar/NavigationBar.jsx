@@ -12,7 +12,7 @@ export default function NavigationBar() {
     await fetch(`${URL}/api/v1/auth/session`, {
       credentials: "include",
       mode: "cors",
-      method: "delete"
+      method: "DELETE"
     });
     setUser({})
 }
@@ -23,15 +23,15 @@ export default function NavigationBar() {
 <NavLink exact to="/">
     <button>home</button>
   </NavLink>
-  {!user.email ? (<NavLink  to="/auth">
+  {!user?.email ? (<NavLink  to="/auth">
     <button>Login</button>
   </NavLink>) : (<NavLink exact to="/">
     <button onClick={() => handleLogout()}>Sign Out</button>
   </NavLink>)}
-{user.email ? (<NavLink to="/pets">
+{user?.email ? (<NavLink to="/pets">
     <button>My Pets</button>
   </NavLink>) : null}
-  {user.email ? (<NavLink to="/contacts">
+  {user?.email ? (<NavLink to="/contacts">
     <button>Contacts</button>
   </NavLink>) : null}
 <NavLink to="/training">
