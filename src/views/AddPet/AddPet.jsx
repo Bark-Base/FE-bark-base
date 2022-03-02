@@ -3,6 +3,7 @@ import Accordion from "../../components/Accordion/Accordion";
 import { useUser } from "../../context/UserContext";
 import { addContact, addPet } from "../../services/pets";
 import { useHistory } from "react-router-dom";
+import './AddPet.css'
 
 export default function AddPet() {
   const { user } = useUser();
@@ -45,9 +46,7 @@ export default function AddPet() {
 
   return (
     <section style={{ margin: "1rem" }}>
-      <h1 style={{ textAlign: "center" }}>Add Pet</h1>
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
+      <form className="add-pet-form"
         onSubmit={handleSubmit}
       >
         <label>
