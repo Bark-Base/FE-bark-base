@@ -1,0 +1,12 @@
+.template-view {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: inline-grid;
+    grid-template-rows: 1fr 10vh;   
+    background-image: url('../../assets/IMG_49861.jpg');
+    background-size: cover;
+}
+
+.template-view main, footer {
+ margin: 1rem;
+}

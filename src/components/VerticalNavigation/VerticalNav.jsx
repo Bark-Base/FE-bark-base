@@ -3,6 +3,9 @@ import { useUser } from "../../context/UserContext";
 import "./VerticalNav.css";
 import { useState, useEffect } from 'react';
 
+const URL = "http://localhost:7890";
+// const URL = 'https://boiling-meadow-81167.herokuapp.com'
+
 export default function VerticalNav() {
     const {user, setUser} = useUser()
     const history = useHistory();
@@ -15,19 +18,16 @@ export default function VerticalNav() {
       useEffect(() => {
         setLoading(true);
         user? setLoading(false) : setLoading(true);
-      
-        
       }, [user])
-      
-    //   const handleLogout = async() => {
-    //     await fetch(`${URL}/api/v1/auth/session`, {
-    //       credentials: "include",
-    //       mode: "cors",
-    //       method: "delete"
-    //     });
-    //     setUser({})
-    // }
 
+      const handleLogout = async() => {
+        await fetch(`${URL}/api/v1/auth/session`, {
+          credentials: "include",
+          mode: "cors",
+          method: "delete"
+        });
+        setUser({})
+    }
 
   return (
     <section className="vert-nav">
@@ -39,14 +39,20 @@ export default function VerticalNav() {
                <button onClick={() => handleClick('/contacts')}>Contacts</button>
               : null
         }
-        {!user.email ? <article><div>You should make an account!</div> Recusandae dolor voluptas ipsa nisi omnis consectetur. Natus, veritatis laborum iusto facere numquam similique nam id est vel impedit corporis praesentium eius! Voluptas impedit totam, fugiat fugit aspernatur, consequatur eius vitae non possimus, facilis corporis vel aut temporibus iure quidem obcaecati praesentium officiis suscipit.</article> : null}
+        {!user.email ? <article className="temp-text">
+        <h3>New Pet owner? </h3>
+        <span>Go to Facts to get the info you need to keep your pet (and yourself) happy.</span> <br/>
+        <h3>Pet misbehaving?</h3> <span>Go to Training for great videos on how to tame that pet.</span><br/>
+        <h3>Click Login</h3>
+        <span> to make an account so you can keep track of your pet's health and contacts.</span>
+        </article> : null}
 
       { !user.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<NavLink exact to="/">
     <button 
-    // onClick={() => handleLogout()}
+    onClick={() => handleLogout()}
     >Sign Out</button>
   </NavLink>)}
-      <button onClick={() => handleClick('/training')}>Training Resources</button>
+      <button onClick={() => handleClick('/training')}>Training Videos</button>
       <button onClick={() => handleClick('/facts')}>Pet Facts</button>
     </section>
   );

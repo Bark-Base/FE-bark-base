@@ -7,7 +7,7 @@ import { signInUser, signUpUser } from '../../services/barkBaseClient';
 export default function LoginSignin() {
   const [userEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const { setUser } = useUser();
   const [isLoading, setLoading] = useState(false);
   const history = useHistory();
@@ -69,7 +69,7 @@ export default function LoginSignin() {
           Submit
         </button>
       </form>
-      <button style={{ backgroundColor: 'white', border: 'none' }} className="" type="button" onClick={() => setLogin(!login)}>
+      <button className="" type="button" onClick={() => setLogin(!login)}>
         {login ? "do you need to Sign up?" : "do you need to Log in?"}
       </button>
       {isLoading ? <h1>....Loading</h1> : null}

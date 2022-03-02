@@ -1,9 +1,4 @@
-import "./Facts.css";
-
-export default function Facts() {
-    return (
-        <section>
-            Pet Weight:
+Pet Weight:
 Always seek advice from your vet for a healthy weight for your animal. Being obese can cause serious health issues for your pet, even though it appears adorable. Arthritis, joint problems, heart issues, breathing problems, and diabetes are all examples. It is important to ensure that your pet gets sufficient physical exercise every day.
 
 Vaccinations:
@@ -26,6 +21,3 @@ Make sure that your pet can’t get a hold of any wires, remotes, shoes, or pois
 Training:
 Start training early. You don’t have to wait until your dog is six-months old before you start teaching him or her how to sit, come, stay, and walk on a leash. Likewise, invest some time in training new-to-you adult dogs, too. 
 When training your dog, always use voice commands and visual cues. Never resort to hitting your pet in order to teach him or her to obey. This will only make your dog defensive and harder to train. 
-        </section>
-    )
-}
