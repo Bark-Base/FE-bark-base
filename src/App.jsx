@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Template from "./components/Layout/Template";
-import NavigationBar from "./components/NavigationBar/NavigationBar";
+// import NavigationBar from "./components/NavigationBar/NavigationBar";
 import AddPet from "./views/AddPet/AddPet";
 import AuthView from "./views/AuthView/AuthView";
 import Contacts from "./views/Contacts/Contacts";

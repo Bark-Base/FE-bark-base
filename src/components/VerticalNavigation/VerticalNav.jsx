@@ -10,7 +10,7 @@ export default function VerticalNav() {
     const {user, setUser} = useUser()
     const history = useHistory();
     const [ isLoading, setLoading ]= useState(false);
-
+  console.log(isLoading)
     function handleClick(path) {
         history.push(path);
       }
