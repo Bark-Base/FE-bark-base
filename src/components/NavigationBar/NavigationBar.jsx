@@ -2,14 +2,11 @@ import { NavLink } from 'react-router-dom'
 import { useUser } from "../../context/UserContext";
 import "./NavigationBar.css";
 
-const URL = "http://localhost:7890";
-// const URL = 'https://boiling-meadow-81167.herokuapp.com'
-
 export default function NavigationBar() {
   const { user, setUser } = useUser();
 
   const handleLogout = async() => {
-    await fetch(`${URL}/api/v1/auth/session`, {
+    await fetch(`${process.env.URL}/api/v1/auth/session`, {
       credentials: "include",
       mode: "cors",
       method: "DELETE"
