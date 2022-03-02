@@ -9,13 +9,13 @@
 
 .vert-nav button {
     margin: .5rem;
-    height: 8rem;
-    width: 8rem;
+    height: 6rem;
+    width: 6rem;
     border-radius: .5rem;
-    border: none;
-    background-color:black;
+    border: dimgray solid 1px;
+    background-color: rgba(11, 11, 11, .5);
     color: white;
-    font-size: larger;
+    font-size: 1rem;
 }
 
 .vert-nav button:hover {
