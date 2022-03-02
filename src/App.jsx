@@ -20,32 +20,32 @@ function App() {
         </Route>
 
         <Route path={"/auth"}>
-          <Template>
+          <Template header={'Accounts'}>
             <AuthView />
           </Template>
         </Route>
         <Route path={"/training"}>
-          <Template>
+          <Template header={'Training'}>
             <TrainingResources />
           </Template>
         </Route>
         <Route path={"/facts"}>
-          <Template>
+          <Template header={'Pet Facts'}>
             <Facts />
           </Template>
         </Route>
         <Route exact path={"/pets"}>
-          <Template>
+          <Template header={'My Pets'}>
             <Pets />
           </Template>
         </Route>
         <Route exact path={"/pets/add"}>
-          <Template>
+          <Template header={'Add a Pet'}>
             <AddPet />
           </Template>
         </Route>
         <Route path={"/contacts"}>
-          <Template>
+          <Template header={'Contacts'}>
             <Contacts />
           </Template>
         </Route>

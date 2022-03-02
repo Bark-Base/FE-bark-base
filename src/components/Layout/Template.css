@@ -2,11 +2,20 @@
     min-height: 100vh;
     min-width: 100vw;
     display: inline-grid;
-    grid-template-rows: 1fr 10vh;   
+    grid-template-rows: 10vh 80vh 10vh;   
     background-image: url('../../assets/princessleia-fall-sneakpeek-05.jpeg');
     background-size: cover;
 }
 
+.template-view main {
+    overflow-y: scroll;
+}
+
 .template-view main, footer {
  margin: 1rem;
+}
+.template-view header {
+ font-size: 2rem;
+ font-weight: 700;
+ text-align: center;
 }

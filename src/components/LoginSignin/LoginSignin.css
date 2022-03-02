@@ -1,9 +1,25 @@
+.LoginSigninSection { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 2rem;
+}
+
 .LoginSigninForm {
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: center;
-
 }
 
+.login-switch {
+    margin-top: 4rem;
+    font-weight: bolder;
+    color: white;
+    border: none;
+    background: none;
+}
 
+.LoginSigninForm * {
+    margin: .5rem 0 .5rem 0;
+}

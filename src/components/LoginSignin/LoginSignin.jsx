@@ -41,9 +41,8 @@ export default function LoginSignin() {
   };
 
   return (
-    <section style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "2rem"}}>
-      {login ? <div>Log In</div> : <div>Sign up</div>}
-
+    <section className='LoginSigninSection'>
+      <heading>{login ? <div>Log In</div> : <div>Sign up</div>}</heading>
       <form
         className="LoginSigninForm"
         onSubmit={login ? handleLogIn : handleSignUp}
@@ -71,8 +70,8 @@ export default function LoginSignin() {
           Submit
         </button>
       </form>
-      <button className="" type="button" onClick={() => setLogin(!login)}>
-        {login ? "do you need to Sign up?" : "do you need to Log in?"}
+      <button className="login-switch" type="button" onClick={() => setLogin(!login)}>
+        {login ? "do you need to Sign Up instead?" : "do you need to Log In instead?"}
       </button>
       {isError ? <p>{isError}</p> : null }
       {isLoading ? <h1>....Loading</h1> : null}

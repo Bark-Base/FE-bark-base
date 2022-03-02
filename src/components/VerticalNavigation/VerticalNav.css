@@ -3,7 +3,6 @@
     flex-direction: column;
     grid-column: 2 / 3;
     width: 90%;
-    align-self: end;
     margin: 1rem;
 }
 
@@ -21,12 +20,4 @@
 .vert-nav button:hover {
 cursor: pointer;
 border: white 3pt solid
-}
-
-.temp-text {
-    font-size: smaller;
-}
-
-.temp-text h3 {
-    margin-bottom: 0;
 }
