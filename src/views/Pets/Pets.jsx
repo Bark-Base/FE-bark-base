@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { getPets, updateContacts, updatePet } from "../../services/pets";
 import { useUser } from "../../context/UserContext";
 import PetDetail from "../../components/PetDetail/PetDetail";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Pets() {
   const { user } = useUser();
@@ -11,7 +11,7 @@ export default function Pets() {
   const [currPet, setCurrPet] = useState({});
   const [allPets, setAllPets] = useState([]);
   const [loading, setLoading] = useState(false);
-
+console.log(loading)
   
 
   useEffect(() => {
