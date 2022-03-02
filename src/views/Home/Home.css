@@ -7,7 +7,6 @@
     grid-template-areas: 
     "logo logo" 
     ". nav";
-    align-items: end;
     background-image: url('../../assets/IMG_49861.jpg');
     background-size: cover;
   }
@@ -17,3 +16,11 @@
     text-align: center;
     font-size: 3rem;
   }
+
+.temp-text {
+    font-size: smaller;
+}
+
+.temp-text h3 {
+    margin-bottom: 0;
+}
