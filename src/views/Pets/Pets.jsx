@@ -34,8 +34,8 @@ export default function Pets() {
   const handleSubmit = async (e, pet) => {
     e.preventDefault();
     await updateContacts(pet.contacts[0]);
-    // await updateContacts(contacts[1]);
-    // await updateContacts(contacts[2]);
+    await updateContacts(pet.contacts[1]);
+    await updateContacts(pet.contacts[2]);
     await updatePet(pet);
 
     const pets = await getPets(user.ownerId);
@@ -44,7 +44,7 @@ export default function Pets() {
 
   return (
     <>
-     {loading? <h1>...Loading</h1> : null};
+     {loading? <h1>...Loading</h1> : null}
       {allPets.map((pet, index) => (
         <button key={pet?.petId} onClick={() => handleClick(index)}>
           {pet.name}

@@ -38,7 +38,7 @@ export default function VerticalNav() {
               : null
         }
 
-      { !user.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<Link exact to="/">
+      { !user.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<Link to="/">
     <button 
     onClick={() => handleLogout()}
     >Sign Out</button>

@@ -18,7 +18,6 @@ function App() {
         <Route exact path={"/"}>
           <Home />
         </Route>
-
         <Route path={"/auth"}>
           <Template header={'Accounts'}>
             <AuthView />
