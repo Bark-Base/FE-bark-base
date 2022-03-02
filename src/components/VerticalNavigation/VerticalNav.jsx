@@ -10,7 +10,7 @@ export default function VerticalNav() {
     const {user, setUser} = useUser()
     const history = useHistory();
     const [ isLoading, setLoading ]= useState(false);
-  console.log(isLoading)
+  
     function handleClick(path) {
         history.push(path);
       }
@@ -31,15 +31,16 @@ export default function VerticalNav() {
 
   return (
     <section className="vert-nav">
-        {user.email ?
+        {isLoading? <h1>...Loading</h1> : null}
+        {user?.email ?
               <button onClick={() => handleClick('/pets')}>My Pets</button>
               : null
         }
-        {user.email ?
+        {user?.email ?
                <button onClick={() => handleClick('/contacts')}>Contacts</button>
               : null
         }
-        {!user.email ? <article className="temp-text">
+        {!user?.email ? <article className="temp-text">
         <h3>New Pet owner? </h3>
         <span>Go to Facts to get the info you need to keep your pet (and yourself) happy.</span> <br/>
         <h3>Pet misbehaving?</h3> <span>Go to Training for great videos on how to tame that pet.</span><br/>
@@ -47,7 +48,7 @@ export default function VerticalNav() {
         <span> to make an account so you can keep track of your pet's health and contacts.</span>
         </article> : null}
 
-      { !user.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<NavLink exact to="/">
+      { !user?.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<NavLink exact to="/">
     <button 
     onClick={() => handleLogout()}
     >Sign Out</button>

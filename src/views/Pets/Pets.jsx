@@ -11,7 +11,7 @@ export default function Pets() {
   const [currPet, setCurrPet] = useState({});
   const [allPets, setAllPets] = useState([]);
   const [loading, setLoading] = useState(false);
-console.log(loading)
+
   
 
   useEffect(() => {
@@ -33,7 +33,6 @@ console.log(loading)
   };
   const handleSubmit = async (e, pet) => {
     e.preventDefault();
-    console.log(pet, ",,,,,,,,,,,,,,,,", pet.contacts);
     await updateContacts(pet.contacts[0]);
     // await updateContacts(contacts[1]);
     // await updateContacts(contacts[2]);
@@ -45,6 +44,7 @@ console.log(loading)
 
   return (
     <>
+     {loading? <h1>...Loading</h1> : null};
       {allPets.map((pet, index) => (
         <button key={pet?.petId} onClick={() => handleClick(index)}>
           {pet.name}

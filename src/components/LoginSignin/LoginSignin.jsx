@@ -11,6 +11,7 @@ export default function LoginSignin() {
   const { setUser } = useUser();
   const [isLoading, setLoading] = useState(false);
   const history = useHistory();
+  const [ isError, setError ] = useState(false);
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -28,11 +29,12 @@ export default function LoginSignin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const { user } = await signUpUser(userEmail, password);
-      console.log(user)
+      const { user , error } = await signUpUser(userEmail, password);
+      console.log(user, error)
       await setUser(user);
       setLoading(false);
-      await history.replace('/');
+      error? setError(error) : await history.replace('/');
+      
     } catch (error) {
       throw error;
     }
@@ -72,6 +74,7 @@ export default function LoginSignin() {
       <button className="" type="button" onClick={() => setLogin(!login)}>
         {login ? "do you need to Sign up?" : "do you need to Log in?"}
       </button>
+      {isError ? <p>{isError}</p> : null }
       {isLoading ? <h1>....Loading</h1> : null}
     </section>
   );

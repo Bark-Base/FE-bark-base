@@ -6,7 +6,7 @@ export async function addPet({ ownerId, name, birthday='', imageUrl='' }) {
     const res = await fetch(`${URL}/api/v1/pet`, {
       credentials: "include",
       mode: "cors",
-      method: "post",
+      method: "POST",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ ownerId: +ownerId, name, birthday, imageUrl  }),
     });
@@ -23,9 +23,9 @@ export async function updatePet( { petId, name, birthday, imageUrl } ) {
   const res = await fetch(`${URL}/api/v1/pet/${petId}`, {
     credentials: "include",
     mode: "cors",
-    method: "patch",
+    method: "PATCH",
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(name, birthday, imageUrl),
+    body: JSON.stringify({name, birthday, imageUrl}),
   });
   const body  = res.json();
   return body;
@@ -39,7 +39,7 @@ export async function addContact({ type='', name='', phone='', email='', address
     const res = await fetch(`${URL}/api/v1/contact`, {
       credentials: "include",
       mode: "cors",
-      method: "post",
+      method: "POST",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ type, name, phone, email, address, ownerId: +ownerId, petId: +petId }),
     });
@@ -71,7 +71,7 @@ export async function updateContacts({contact_id, name, email, phone, address} )
   const res = await fetch(`${URL}/api/v1/contact/${+contact_id}`, {
     credentials: "include",
     mode: "cors",
-    method: "patch",
+    method: "PATCH",
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({name, email, phone, address}),
   });
