@@ -6,22 +6,22 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [allPets, setAllPets] = useState([]);
+  const [allPets, setAllPets] = useState([{}]);
 
+  const value = useMemo(
+    () => ({ user, setUser, allPets, setAllPets }),
+    [user, allPets]
+  );
 
-  const value = useMemo(() => ({ user, setUser, allPets, setAllPets }), [user, allPets]);
-
-useEffect(() => {
-  async function getAndSetUser() {
-    const currentUser = await getUser()
-    setUser(currentUser)
-    const pets = await getPets(currentUser.ownerId);
-    setAllPets(pets)
-  }
-getAndSetUser()
-}, [])
-
-
+  useEffect(() => {
+    async function getAndSetUser() {
+      const currentUser = await getUser();
+      setUser(currentUser);
+      const pets = await getPets(currentUser.ownerId);
+      setAllPets(pets);
+    }
+    getAndSetUser();
+  }, []);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 

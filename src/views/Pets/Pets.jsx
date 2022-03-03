@@ -11,10 +11,12 @@ export default function Pets() {
   const { user, allPets, setAllPets } = useUser();
   const [i, setI] = useState(allPets.length - 1);
   const [currPet, setCurrPet] = useState({});
-  
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setCurrPet(allPets[i]);
+      setLoading(true);
+      setCurrPet(allPets[i]);
+      setLoading(false);
   }, [allPets, i]);
 
   const handleClick = (index) => {
@@ -28,15 +30,13 @@ export default function Pets() {
     await updateContacts(pet.petId, pet.contacts[2]);
 
     const pets = await getPets(user.ownerId);
-    console.log(user.ownerId)
     await setAllPets(pets);
   };
 
-  return (
-    <>
-     {/* {loading? <h1>...Loading</h1> : null} */}
+  const petPage = (
+    <section>
       {allPets.map((pet, index) => (
-        <button key={pet?.petId} onClick={() => handleClick(index)}>
+        <button key={pet.petId} onClick={() => handleClick(index)}>
           {pet.name}
         </button>
       ))}
@@ -47,10 +47,10 @@ export default function Pets() {
       {allPets.length && currPet ? (
         <PetDetail handleSubmit={handleSubmit} pet={currPet} />
       ) : (
-        <div>
-          You have no pets, <h1>Shame</h1>{" "}
-        </div>
+        <h1>Add your pet here!</h1>
       )}
-    </>
+    </section>
   );
+
+  return <section>{loading ? <h1>...Loading</h1> : petPage}</section>;
 }

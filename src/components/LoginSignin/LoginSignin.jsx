@@ -30,7 +30,6 @@ export default function LoginSignin() {
     try {
       setLoading(true);
       const { user , error } = await signUpUser(userEmail, password);
-      console.log(user, error)
       await setUser(user);
       setLoading(false);
       error? setError(error) : await history.replace('/');
@@ -73,7 +72,7 @@ export default function LoginSignin() {
       <button className="login-switch" type="button" onClick={() => setLogin(!login)}>
         {login ? "do you need to Sign Up instead?" : "do you need to Log In instead?"}
       </button>
-      {isError ? <p>{isError}</p> : null }
+      {isError==='an account with that email already exists' ? <p>{isError}</p> : null }
       {isLoading ? <h1>....Loading</h1> : null}
     </section>
   );
