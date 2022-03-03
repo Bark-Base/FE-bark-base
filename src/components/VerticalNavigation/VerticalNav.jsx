@@ -18,7 +18,7 @@ export default function VerticalNav() {
       }, [user])
 
       const handleLogout = async() => {
-        await fetch(`${process.env.URL}/api/v1/auth/session`, {
+        await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/session`, {
           credentials: "include",
           mode: "cors",
           method: "delete"
@@ -38,7 +38,7 @@ export default function VerticalNav() {
               : null
         }
 
-      { !user.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<Link exact to="/">
+      { !user.email ? <button onClick={() => handleClick('/auth')}>Log In</button> : (<Link to="/">
     <button 
     onClick={() => handleLogout()}
     >Sign Out</button>

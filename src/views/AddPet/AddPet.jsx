@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { useUser } from "../../context/UserContext";
-import { addContact, addPet } from "../../services/pets";
+import { addContact, addPet, getPets } from "../../services/pets";
 import { useHistory } from "react-router-dom";
+import './AddPet.css'
 
 export default function AddPet() {
-  const { user } = useUser();
+  const { user, setAllPets } = useUser();
   const history = useHistory();
 
   const [pet, setPet] = useState({name:'', birthday:''});
@@ -40,14 +41,14 @@ export default function AddPet() {
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...trainer });
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...walker });
     // )
-    await history.push(`/pets`);
+    const pets = await getPets(user.ownerId);
+    setAllPets(pets)
+    history.push(`/pets?true`);
   };
 
   return (
     <section style={{ margin: "1rem" }}>
-      <h1 style={{ textAlign: "center" }}>Add Pet</h1>
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
+      <form className="add-pet-form"
         onSubmit={handleSubmit}
       >
         <label>
@@ -232,7 +233,7 @@ export default function AddPet() {
           }
         />
         {/* <input type="file" /> */}
-        <button type="button" value="button" onClick={() => history.replace('/')}>
+        <button type="button" value="button" onClick={() => history.replace('/pets')}>
           Cancel
         </button>
         <button type="submit" value="submit">

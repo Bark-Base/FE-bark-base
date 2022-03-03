@@ -1,6 +1,6 @@
 export async function addPet({ ownerId, name, birthday='', imageUrl='' }) {
   try {
-    const res = await fetch(`${process.env.URL}/api/v1/pet`, {
+    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/pet`, {
       credentials: "include",
       mode: "cors",
       method: "POST",
@@ -14,10 +14,10 @@ export async function addPet({ ownerId, name, birthday='', imageUrl='' }) {
     return {};
   }
 }
-export async function updatePet( { petId, name, birthday, imageUrl } ) {  
+export async function updatePet( { petId, name='', birthday='', imageUrl='' } ) {  
   console.log(petId, name, birthday, imageUrl)
   try {
-  const res = await fetch(`${process.env.URL}/api/v1/pet/${petId}`, {
+  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/pet/${petId}`, {
     credentials: "include",
     mode: "cors",
     method: "PATCH",
@@ -33,7 +33,7 @@ export async function updatePet( { petId, name, birthday, imageUrl } ) {
 }
 export async function addContact({ type='', name='', phone='', email='', address='', ownerId, petId }) {
   try {
-    const res = await fetch(`${process.env.URL}/api/v1/contact`, {
+    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/contact`, {
       credentials: "include",
       mode: "cors",
       method: "POST",
@@ -64,7 +64,7 @@ export async function getContacts(ownerId) {
 
 export async function getPets(ownerId) {
   try {
-  const res = await fetch(`${process.env.URL}/api/v1/pet/all/${+ownerId}`, {
+  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/pet/all/${+ownerId}`, {
     credentials: "include",
     method: "get",
     mode: "cors",
@@ -76,15 +76,15 @@ export async function getPets(ownerId) {
   return [];
 }
 }
-export async function updateContacts({contact_id, name, email, phone, address} ) {
+export async function updateContacts(petId,{contact_id, name='', email='', phone='', address=''} ) {
   try {
     console.log(contact_id, name, email, phone, address)
-  const res = await fetch(`${process.env.URL}/api/v1/contact/${+contact_id}`, {
+  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/contact/${+contact_id}`, {
     credentials: "include",
     mode: "cors",
     method: "PATCH",
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({name, email, phone, address}),
+    body: JSON.stringify({petId, name, email, phone, address}),
   });
   const body  = res.json();
   return body;

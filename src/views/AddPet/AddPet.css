@@ -1,0 +1,8 @@
+.add-pet-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-pet-form * {
+margin: .5rem 0 .5rem 0;
+}

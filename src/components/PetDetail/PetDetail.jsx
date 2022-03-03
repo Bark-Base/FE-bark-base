@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Accordion from "../Accordion/Accordion";
 
 export default function PetDetail({ handleSubmit, pet }) {
@@ -12,14 +12,13 @@ export default function PetDetail({ handleSubmit, pet }) {
     address: contacts[0].address,
     contact_id:contacts[0].contact_id
   });
-  
   const [trainer, setTrainer] = useState({
     type: "trainer",
     name: contacts[1].name,
     email: contacts[1].email,
     phone: contacts[1].phone,
     address: contacts[1].address,
-    contact_id:contacts[0].contact_id
+    contact_id:contacts[1].contact_id
   });
   const [walker, setWalker] = useState({
     type: "walker",
@@ -27,8 +26,15 @@ export default function PetDetail({ handleSubmit, pet }) {
     email: contacts[2].email,
     phone: contacts[2].phone,
     address: contacts[2].address,
-    contact_id:contacts[0].contact_id
+    contact_id:contacts[2].contact_id
   });
+
+  useEffect(() => {
+    setCurrentPet(pet);
+    setVet({...pet.contacts[0], type: "vet"})
+    setTrainer({...pet.contacts[1], type: "trainer"})
+    setWalker({...pet.contacts[2], type: "walker"})
+  }, [pet]);
 
   return (
     <form
@@ -93,7 +99,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={vet.phone}
-              placeholder={vet.phone}
+              placeholder="phone"
               value={vet.phone}
               onChange={(e) =>
                 setVet((previousState) => {
@@ -104,7 +110,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={vet.address}
-              placeholder={vet.address}
+              placeholder="address"
               value={vet.address}
               onChange={(e) =>
                 setVet((previousState) => {
@@ -122,7 +128,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={trainer.name}
-              placeholder={trainer.name}
+              placeholder="name"
               value={trainer.name}
               onChange={(e) =>
                 setTrainer((previousState) => {
@@ -133,7 +139,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="email"
               id={trainer.email}
-              placeholder={trainer.email}
+              placeholder="email"
               value={trainer.email}
               onChange={(e) =>
                 setTrainer((previousState) => {
@@ -144,7 +150,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={trainer.phone}
-              placeholder={trainer.phone}
+              placeholder="phone"
               value={trainer.phone}
               onChange={(e) =>
                 setTrainer((previousState) => {
@@ -155,7 +161,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={trainer.address}
-              placeholder={trainer.address}
+              placeholder="address"
               value={trainer.address}
               onChange={(e) =>
                 setTrainer((previousState) => {
@@ -173,7 +179,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={walker.name}
-              placeholder={walker.name}
+              placeholder="name"
               value={walker.name}
               onChange={(e) =>
                 setWalker((previousState) => {
@@ -184,7 +190,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="email"
               id={walker.email}
-              placeholder={walker.email}
+              placeholder="email"
               value={walker.email}
               onChange={(e) =>
                 setWalker((previousState) => {
@@ -195,7 +201,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={walker.phone}
-              placeholder={walker.phone}
+              placeholder="phone"
               value={walker.phone}
               onChange={(e) =>
                 setWalker((previousState) => {
@@ -206,7 +212,7 @@ export default function PetDetail({ handleSubmit, pet }) {
             <input
               type="text"
               id={walker.address}
-              placeholder={walker.address}
+              placeholder="address"
               value={walker.address}
               onChange={(e) =>
                 setWalker((previousState) => {

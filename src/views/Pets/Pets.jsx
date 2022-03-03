@@ -4,25 +4,14 @@ import { getPets, updateContacts, updatePet } from "../../services/pets";
 import { useUser } from "../../context/UserContext";
 import PetDetail from "../../components/PetDetail/PetDetail";
 import { Link } from "react-router-dom";
+// import { useLocation } from 'react-router-dom'
 
 export default function Pets() {
-  const { user } = useUser();
-  const [i, setI] = useState(0);
+  // const location = useLocation()
+  const { user, allPets, setAllPets } = useUser();
   const [currPet, setCurrPet] = useState({});
-  const [allPets, setAllPets] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  
-
-  useEffect(() => {
-    async function getAllpets() {
-      setLoading(true);
-      const pets = await getPets(user.ownerId);
-      setAllPets(pets);
-      setLoading(false);
-    }
-    getAllpets();
-  }, [user.ownerId]);
+  const [i, setI] = useState(allPets.length - 1);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setCurrPet(allPets[i]);
@@ -33,18 +22,19 @@ export default function Pets() {
   };
   const handleSubmit = async (e, pet) => {
     e.preventDefault();
-    await updateContacts(pet.contacts[0]);
-    // await updateContacts(contacts[1]);
-    // await updateContacts(contacts[2]);
     await updatePet(pet);
+    await updateContacts(pet.petId, pet.contacts[0]);
+    await updateContacts(pet.petId, pet.contacts[1]);
+    await updateContacts(pet.petId, pet.contacts[2]);
 
     const pets = await getPets(user.ownerId);
+    console.log(user.ownerId)
     await setAllPets(pets);
   };
 
   return (
     <>
-     {loading? <h1>...Loading</h1> : null};
+     {/* {loading? <h1>...Loading</h1> : null} */}
       {allPets.map((pet, index) => (
         <button key={pet?.petId} onClick={() => handleClick(index)}>
           {pet.name}
@@ -54,7 +44,7 @@ export default function Pets() {
         <button type="button">Add Pet</button>
       </Link>
 
-      {allPets.length > 0 && currPet?.petId ? (
+      {currPet?.petId ? (
         <PetDetail handleSubmit={handleSubmit} pet={currPet} />
       ) : (
         <div>
