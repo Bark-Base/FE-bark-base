@@ -5,7 +5,7 @@ import "./Contacts.css";
 
 export default function Contacts() {
     const { user } = useUser();
-    const [contacts, setContacts ] = useState();
+    const [ contacts, setContacts ] = useState([]);
 
     useEffect(() => {
         async function getAllContacts() {
@@ -18,7 +18,7 @@ export default function Contacts() {
     
     return (
         <section>
-            {contacts?.map((contact) => <p key={contact.contact_id}>{contact.name && contact.type}</p>)}
+            {user.ownerId ? contacts?.map((contact) => <p key={contact.contact_id}>{contact.name && contact.type}</p>) : <h1>...LOading</h1>}
         </section>
     )
 }
