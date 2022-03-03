@@ -42,7 +42,7 @@ export default function LoginSignin() {
 
   return (
     <section className='LoginSigninSection'>
-      <heading>{login ? <div>Log In</div> : <div>Sign up</div>}</heading>
+      <header>{login ? <div>Log In</div> : <div>Sign up</div>}</header>
       <form
         className="LoginSigninForm"
         onSubmit={login ? handleLogIn : handleSignUp}
