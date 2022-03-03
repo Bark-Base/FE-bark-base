@@ -31,4 +31,4 @@ jobs:
     - run: npm test
       env:
        CI: true,
-       REACT_APP_DATABASE_URL: ${{ secrets.REACT_APP_DATABASE_URL }}
+       REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
