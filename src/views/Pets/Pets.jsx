@@ -4,14 +4,14 @@ import { getPets, updateContacts, updatePet } from "../../services/pets";
 import { useUser } from "../../context/UserContext";
 import PetDetail from "../../components/PetDetail/PetDetail";
 import { Link } from "react-router-dom";
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 
 export default function Pets() {
-  const location = useLocation()
+  // const location = useLocation()
   const { user, allPets, setAllPets } = useUser();
   const [currPet, setCurrPet] = useState({});
   const [i, setI] = useState(allPets.length - 1);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setCurrPet(allPets[i]);
@@ -34,7 +34,7 @@ export default function Pets() {
 
   return (
     <>
-     {loading? <h1>...Loading</h1> : null}
+     {/* {loading? <h1>...Loading</h1> : null} */}
       {allPets.map((pet, index) => (
         <button key={pet?.petId} onClick={() => handleClick(index)}>
           {pet.name}
