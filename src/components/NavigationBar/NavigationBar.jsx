@@ -16,7 +16,7 @@ export default function NavigationBar() {
   
 
   return (
-    <section className="horizontal-nav2">
+    <section className="horizontal-nav">
 <NavLink exact to="/">
     <button>home</button>
   </NavLink>

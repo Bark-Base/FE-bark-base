@@ -33,7 +33,11 @@ export default function Pets() {
       {allPets
         .sort((a, b) => a.petId - b.petId)
         .map((pet, index) => (
-          <button key={pet.petId} onClick={() => handleClick(index)}>
+          <button
+            key={pet.petId}
+            className={index === i ? "selectedPet" : "unselectedPet"}
+            onClick={() => handleClick(index)}
+          >
             {pet.name}
           </button>
         ))}
