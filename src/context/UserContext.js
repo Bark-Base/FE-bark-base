@@ -6,11 +6,12 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [allPets, setAllPets] = useState([{}]);
+  const [allPets, setAllPets] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const value = useMemo(
-    () => ({ user, setUser, allPets, setAllPets }),
-    [user, allPets]
+    () => ({ user, setUser, allPets, setAllPets, loading }),
+    [user, allPets, loading]
   );
 
   useEffect(() => {
@@ -21,7 +22,9 @@ const UserProvider = ({ children }) => {
       setAllPets(pets);
     }
     getAndSetUser();
+    setLoading(false);
   }, []);
+
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 

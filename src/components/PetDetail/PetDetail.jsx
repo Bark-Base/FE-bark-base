@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Accordion from "../Accordion/Accordion";
 
-export default function PetDetail({ handleSubmit, pet }) {
-  const [currentPet, setCurrentPet] = useState(pet);
+export default function PetDetail({ handleSubmit, currentPet }) {
+  const [updatedPet, setUpdatedPet] = useState(currentPet);
   const { contacts } = currentPet;
   const [vet, setVet] = useState({
     type: "vet",
@@ -10,7 +10,7 @@ export default function PetDetail({ handleSubmit, pet }) {
     email: contacts[0].email,
     phone: contacts[0].phone,
     address: contacts[0].address,
-    contact_id:contacts[0].contact_id
+    contact_id: contacts[0].contact_id,
   });
   const [trainer, setTrainer] = useState({
     type: "trainer",
@@ -18,7 +18,7 @@ export default function PetDetail({ handleSubmit, pet }) {
     email: contacts[1].email,
     phone: contacts[1].phone,
     address: contacts[1].address,
-    contact_id:contacts[1].contact_id
+    contact_id: contacts[1].contact_id,
   });
   const [walker, setWalker] = useState({
     type: "walker",
@@ -26,20 +26,21 @@ export default function PetDetail({ handleSubmit, pet }) {
     email: contacts[2].email,
     phone: contacts[2].phone,
     address: contacts[2].address,
-    contact_id:contacts[2].contact_id
+    contact_id: contacts[2].contact_id,
   });
+  const [editing, setEditing] = useState(false);
 
   useEffect(() => {
-    setCurrentPet(pet);
-    setVet({...pet.contacts[0], type: "vet"})
-    setTrainer({...pet.contacts[1], type: "trainer"})
-    setWalker({...pet.contacts[2], type: "walker"})
-  }, [pet]);
+    setUpdatedPet(currentPet);
+    setVet({ ...currentPet.contacts[0], type: "vet" });
+    setTrainer({ ...currentPet.contacts[1], type: "trainer" });
+    setWalker({ ...currentPet.contacts[2], type: "walker" });
+  }, [currentPet.contacts, currentPet]);
 
   return (
     <form
       onSubmit={(e) =>
-        handleSubmit(e, { ...currentPet, contacts: [vet, trainer, walker] })
+        handleSubmit(e, { ...updatedPet, contacts: [vet, trainer, walker] })
       }
       style={{ display: "flex", flexDirection: "column" }}
     >
@@ -47,10 +48,10 @@ export default function PetDetail({ handleSubmit, pet }) {
         Name
         <input
           type="text"
-          placeholder={currentPet.name}
-          value={currentPet.name}
+          // placeholder={updatedPet.name}
+          value={updatedPet.name}
           onChange={(e) =>
-            setCurrentPet((previousState) => {
+            setUpdatedPet((previousState) => {
               return { ...previousState, name: e.target.value };
             })
           }
@@ -61,10 +62,10 @@ export default function PetDetail({ handleSubmit, pet }) {
         Birthday
         <input
           type="date"
-          placeholder={currentPet.birthday}
-          value={currentPet.birthday}
+          // placeholder='birthday'
+          value={updatedPet.birthday}
           onChange={(e) =>
-            setCurrentPet((previousState) => {
+            setUpdatedPet((previousState) => {
               return { ...previousState, birthday: e.target.value };
             })
           }
@@ -223,8 +224,12 @@ export default function PetDetail({ handleSubmit, pet }) {
           </>
         }
       />
+      <button type="button" onClick={() => setEditing(true)}>
+        Edit Pet
+      </button>
+      <button type="button">Cancel</button>
       <button type="submit" value="submit">
-        Update {pet.name}
+        Update {currentPet.name}
       </button>
     </form>
   );

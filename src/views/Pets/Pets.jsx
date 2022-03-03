@@ -5,18 +5,13 @@ import { useUser } from "../../context/UserContext";
 import PetDetail from "../../components/PetDetail/PetDetail";
 import { Link } from "react-router-dom";
 
-
 export default function Pets() {
- 
-  const { user, allPets, setAllPets } = useUser();
+  const { user, allPets, setAllPets, loading } = useUser();
   const [i, setI] = useState(allPets.length - 1);
-  const [currPet, setCurrPet] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [currPet, setCurrPet] = useState(allPets[0] || {});
 
   useEffect(() => {
-      setLoading(true);
-      setCurrPet(allPets[i]);
-      setLoading(false);
+    setCurrPet(allPets[i]);
   }, [allPets, i]);
 
   const handleClick = (index) => {
@@ -30,24 +25,26 @@ export default function Pets() {
     await updateContacts(pet.petId, pet.contacts[2]);
 
     const pets = await getPets(user.ownerId);
-    await setAllPets(pets);
+    setAllPets(pets);
   };
 
   const petPage = (
     <section>
-      {allPets.map((pet, index) => (
-        <button key={pet.petId} onClick={() => handleClick(index)}>
-          {pet.name}
-        </button>
-      ))}
+      {allPets
+        .sort((a, b) => a.petId - b.petId)
+        .map((pet, index) => (
+          <button key={pet.petId} onClick={() => handleClick(index)}>
+            {pet.name}
+          </button>
+        ))}
       <Link to="/pets/add">
         <button type="button">Add Pet</button>
       </Link>
-
-      {allPets.length && currPet ? (
-        <PetDetail handleSubmit={handleSubmit} pet={currPet} />
-      ) : (
-        <h1>Add your pet here!</h1>
+      {allPets[0]?.petId && (
+        <PetDetail
+          handleSubmit={handleSubmit}
+          currentPet={currPet || allPets[0]}
+        />
       )}
     </section>
   );
