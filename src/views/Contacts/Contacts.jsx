@@ -9,7 +9,7 @@ export default function Contacts() {
 
     useEffect(() => {
         async function getAllContacts() {
-           const contactFetch = await getContacts(user.ownerId);
+           const contactFetch = await getContacts(user.ownerId)
            setContacts(contactFetch);
         }
         getAllContacts();
@@ -18,7 +18,7 @@ export default function Contacts() {
     
     return (
         <section>
-            {user.ownerId ? contacts?.map((contact) => <p key={contact.contact_id}>{contact.name && contact.type}</p>) : <h1>...LOading</h1>}
+            {user.ownerId ? contacts?.map((contact) => <p key={contact.contactId}>{contact.name && contact.type}</p>) : <h1>...LOading</h1>}
         </section>
     )
 }
