@@ -26,6 +26,7 @@ export default function Contacts() {
                 {contact.name}
               </p>
               <p className="contact-field">{contact?.phone}</p>
+              <p className="contact-field">{contact?.email}</p>
               <p className="contact-field">{contact?.address}</p>
             </div>
           ))

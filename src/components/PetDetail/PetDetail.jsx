@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Accordion from "../Accordion/Accordion";
+import './PetDetail.css'
 
 export default function PetDetail({ handleSubmit, currentPet }) {
   const [updatedPet, setUpdatedPet] = useState(currentPet);
@@ -37,18 +38,26 @@ export default function PetDetail({ handleSubmit, currentPet }) {
     setWalker({ ...currentPet.contacts[2], type: "walker" });
   }, [currentPet.contacts, currentPet]);
 
+  const cancelEdit = () => {
+    setUpdatedPet(currentPet)
+    setVet(currentPet.contacts[0])
+    setWalker(currentPet.contacts[2])
+    setTrainer(currentPet.contacts[1])
+    setEditing(false);
+  }
+
   return (
-    <form
+    <form className={!editing ? 'not-editing':'is-editing'}
       onSubmit={(e) =>
         handleSubmit(e, { ...updatedPet, contacts: [vet, trainer, walker] })
       }
-      style={{ display: "flex", flexDirection: "column" }}
     >
+      {editing &&
       <label>
         Name
         <input
           type="text"
-          // placeholder={updatedPet.name}
+          readOnly={!editing}
           value={updatedPet.name}
           onChange={(e) =>
             setUpdatedPet((previousState) => {
@@ -57,12 +66,12 @@ export default function PetDetail({ handleSubmit, currentPet }) {
           }
         />
       </label>
-
+}
       <label>
         Birthday
         <input
           type="date"
-          // placeholder='birthday'
+          readOnly={!editing}
           value={updatedPet.birthday}
           onChange={(e) =>
             setUpdatedPet((previousState) => {
@@ -78,6 +87,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={vet.name}
+              readOnly={!editing}
               placeholder="vet name"
               value={vet.name}
               onChange={(e) =>
@@ -89,6 +99,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="email"
               id={vet.email}
+              readOnly={!editing}
               placeholder="email"
               value={vet.email}
               onChange={(e) =>
@@ -100,6 +111,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={vet.phone}
+              readOnly={!editing}
               placeholder="phone"
               value={vet.phone}
               onChange={(e) =>
@@ -111,6 +123,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={vet.address}
+              readOnly={!editing}
               placeholder="address"
               value={vet.address}
               onChange={(e) =>
@@ -129,6 +142,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={trainer.name}
+              readOnly={!editing}
               placeholder="name"
               value={trainer.name}
               onChange={(e) =>
@@ -140,6 +154,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="email"
               id={trainer.email}
+              readOnly={!editing}
               placeholder="email"
               value={trainer.email}
               onChange={(e) =>
@@ -151,6 +166,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={trainer.phone}
+              readOnly={!editing}
               placeholder="phone"
               value={trainer.phone}
               onChange={(e) =>
@@ -162,6 +178,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={trainer.address}
+              readOnly={!editing}
               placeholder="address"
               value={trainer.address}
               onChange={(e) =>
@@ -180,6 +197,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={walker.name}
+              readOnly={!editing}
               placeholder="name"
               value={walker.name}
               onChange={(e) =>
@@ -191,6 +209,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="email"
               id={walker.email}
+              readOnly={!editing}
               placeholder="email"
               value={walker.email}
               onChange={(e) =>
@@ -202,6 +221,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={walker.phone}
+              readOnly={!editing}
               placeholder="phone"
               value={walker.phone}
               onChange={(e) =>
@@ -213,6 +233,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
             <input
               type="text"
               id={walker.address}
+              readOnly={!editing}
               placeholder="address"
               value={walker.address}
               onChange={(e) =>
@@ -224,13 +245,20 @@ export default function PetDetail({ handleSubmit, currentPet }) {
           </>
         }
       />
-      <button type="button" onClick={() => setEditing(true)}>
-        Edit Pet
-      </button>
-      <button type="button">Cancel</button>
-      <button type="submit" value="submit">
-        Update {currentPet.name}
-      </button>
+
+      {!editing && (
+        <button type="button" onClick={() => setEditing(true)}>
+          Edit Pet
+        </button>
+      )}
+
+      {editing && <button type="button" onClick={() => cancelEdit()}>Cancel</button>}
+
+      {editing && (
+        <button type="submit" value="submit">
+          Update {currentPet.name}
+        </button>
+      )}
     </form>
   );
 }

@@ -1,0 +1,16 @@
+.not-editing {
+    display: flex;
+    flex-direction: column;
+}
+.is-editing {
+    display: flex;
+    flex-direction: column;
+}
+.not-editing input{
+    background-color:rgba(11, 11, 11, 0);
+border: none;
+color: black;
+}
+.is-editing input{
+    background-color: white;
+}
