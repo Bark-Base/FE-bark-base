@@ -47,6 +47,20 @@ export async function addContact({ type='', name='', phone='', email='', address
     return {};
   }
 }
+export async function getContacts(ownerId) {
+  try {
+  const res = await fetch(`${process.env.URL}/api/v1/contact/all/${+ownerId}`, {
+    credentials: "include",
+    method: "get",
+    mode: "cors",
+  });
+  const body  = res.json();
+  return body;
+} catch (error) {
+  console.error(error.message);
+  return [];
+}
+}
 
 export async function getPets(ownerId) {
   try {
