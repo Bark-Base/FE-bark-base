@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Accordion from "../Accordion/Accordion";
 
 export default function PetDetail({ handleSubmit, pet }) {
@@ -12,7 +12,6 @@ export default function PetDetail({ handleSubmit, pet }) {
     address: contacts[0].address,
     contact_id:contacts[0].contact_id
   });
-  
   const [trainer, setTrainer] = useState({
     type: "trainer",
     name: contacts[1].name,
@@ -29,6 +28,13 @@ export default function PetDetail({ handleSubmit, pet }) {
     address: contacts[2].address,
     contact_id:contacts[2].contact_id
   });
+
+  useEffect(() => {
+    setCurrentPet(pet);
+    setVet({...pet.contacts[0], type: "vet"})
+    setTrainer({...pet.contacts[1], type: "trainer"})
+    setWalker({...pet.contacts[2], type: "walker"})
+  }, [pet]);
 
   return (
     <form
