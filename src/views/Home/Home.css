@@ -9,13 +9,18 @@
     ". nav";
     background-image: url('../../assets/IMG_49861.jpg');
     background-size: cover;
-  }
+}
 
-  .barkbase-logo {
+.barkbase-logo {
     grid-column: span 2;
     text-align: center;
     font-size: 3rem;
-  }
+}
+
+.homepage-content {
+ grid-column-start: 2; 
+ justify-items:center
+}
 
 .temp-text {
     font-size: smaller;

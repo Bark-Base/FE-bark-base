@@ -8,8 +8,9 @@ export default function Home() {
   return (
     <section className="homepage">
       <h1 className="barkbase-logo">barkbase</h1>
-      <div></div>
-      <div>
+      <div className="homepage-content">
+
+
         {!user?.email ? (
           <article className="temp-text">
             <h3>New Pet owner? </h3>
@@ -31,6 +32,8 @@ export default function Home() {
             </span>
           </article>
         ) : null}
+
+
         <VerticalNav />
       </div>
     </section>

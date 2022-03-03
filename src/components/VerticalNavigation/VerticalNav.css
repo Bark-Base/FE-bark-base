@@ -1,8 +1,6 @@
 .vert-nav {
     display: flex;
     flex-direction: column;
-    grid-column: 2 / 3;
-    width: 90%;
     margin: 1rem;
 }
 
