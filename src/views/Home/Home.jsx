@@ -10,7 +10,7 @@ export default function Home() {
       <h1 className="barkbase-logo">barkbase</h1>
       <div></div>
       <div>
-        {!user.email ? (
+        {!user?.email ? (
           <article className="temp-text">
             <h3>New Pet owner? </h3>
             <span>
