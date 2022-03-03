@@ -49,7 +49,7 @@ export async function addContact({ type='', name='', phone='', email='', address
 }
 export async function getContacts(ownerId) {
   try {
-  const res = await fetch(`${process.env.URL}/api/v1/contact/all/${+ownerId}`, {
+  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/contact/all/${+ownerId}`, {
     credentials: "include",
     method: "get",
     mode: "cors",

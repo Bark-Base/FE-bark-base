@@ -18,7 +18,7 @@ export default function Contacts() {
     
     return (
         <section>
-            {contacts.map((contact) => <p>{contact}</p>)}
+            {contacts?.map((contact) => <p key={contact.contact_id}>{contact.name && contact.type}</p>)}
         </section>
     )
 }
