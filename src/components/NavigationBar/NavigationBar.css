@@ -1,13 +1,22 @@
 
 
-.horizontal-nav2 button {
+.horizontal-nav button {
 font-size: .8rem;
-background-color: gray;
+font-weight: bolder;
+/* background-color: gray; */
 color: white;
 padding: .3rem;
-border: 1px solid dimgray;
+/* border: 1px solid dimgray; */
+border: none;
+background-color: black;
 }
 
 .active button {
     color: orange;
+}
+
+.horizontal-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

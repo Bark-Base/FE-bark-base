@@ -19,3 +19,7 @@
  font-weight: 700;
  text-align: center;
 }
+
+.template-view footer {
+    background-color: black;
+}
