@@ -4,14 +4,14 @@ import { getPets, updateContacts, updatePet } from "../../services/pets";
 import { useUser } from "../../context/UserContext";
 import PetDetail from "../../components/PetDetail/PetDetail";
 import { Link } from "react-router-dom";
-// import { useLocation } from 'react-router-dom'
+
 
 export default function Pets() {
-  // const location = useLocation()
+ 
   const { user, allPets, setAllPets } = useUser();
-  const [currPet, setCurrPet] = useState({});
   const [i, setI] = useState(allPets.length - 1);
-  // const [loading, setLoading] = useState(false);
+  const [currPet, setCurrPet] = useState({});
+  
 
   useEffect(() => {
     setCurrPet(allPets[i]);
@@ -44,7 +44,7 @@ export default function Pets() {
         <button type="button">Add Pet</button>
       </Link>
 
-      {currPet?.petId ? (
+      {allPets.length && currPet ? (
         <PetDetail handleSubmit={handleSubmit} pet={currPet} />
       ) : (
         <div>
