@@ -11,18 +11,21 @@ export async function signUpUser(email, password) {
     return body;
   } catch (error) {
     console.error(error.message);
-    return { error:'An account with that email already exists' }
+    return { error: "An account with that email already exists" };
   }
 }
 
 export async function signInUser(email, password) {
-  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/session`, {
-    credentials: "include",
-    mode: "cors",
-    method: "post",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
+  const res = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/api/v1/auth/session`,
+    {
+      credentials: "include",
+      mode: "cors",
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    }
+  );
   const { error } = res.body;
   if (error) throw error;
   const body = await res.json();
@@ -30,12 +33,18 @@ export async function signInUser(email, password) {
 }
 
 export async function getUser() {
-  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/user`, {
-    credentials: "include",
-    mode: "cors",
-  });
-  const body = await res.json();
-  // const { error } = res.body
-  // if (error) throw error;
-  return body;
+  try {
+    const res = await fetch(
+      `${process.env.REACT_APP_BASE_URL}/api/v1/auth/user`,
+      {
+        credentials: "include",
+        mode: "cors",
+      }
+    );
+    const body = await res.json();
+    return body;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
 }

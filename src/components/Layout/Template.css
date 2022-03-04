@@ -24,11 +24,11 @@
 }
 
 .template-view-header {
- font-size: 3rem;
- font-weight: 700;
- place-self: center;
- color: rgba(18, 17, 19, .4);
- font-family: 'League Spartan', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    place-self: center;
+    color: rgba(18, 17, 19, .4);
+    font-family: 'League Spartan', sans-serif;
     font-weight: 800;
 }
 

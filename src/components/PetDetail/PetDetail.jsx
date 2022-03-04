@@ -3,6 +3,7 @@ import Accordion from "../Accordion/Accordion";
 import "./PetDetail.css";
 
 export default function PetDetail({ handleSubmit, currentPet }) {
+
   const [updatedPet, setUpdatedPet] = useState(currentPet);
   const { contacts } = currentPet;
   const [vet, setVet] = useState({
@@ -84,7 +85,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
           />
         </label>
         <Accordion
-          heading={'VETERINARIAN'}
+          heading={"VETERINARIAN"}
           copy={
             <>
               <input
@@ -139,7 +140,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
           }
         />
         <Accordion
-          heading={'TRAINER'}
+          heading={"TRAINER"}
           copy={
             <>
               <input
@@ -194,7 +195,7 @@ export default function PetDetail({ handleSubmit, currentPet }) {
           }
         />
         <Accordion
-          heading={'WALKER'}
+          heading={"WALKER"}
           copy={
             <>
               <input

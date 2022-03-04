@@ -20,16 +20,16 @@
 }
 
 .homepage-content {
- grid-column: 2 / 3; 
- place-content: center;
- place-self: center;
- padding: 1rem;
+    grid-column: 2 / 3; 
+    place-content: center;
+    place-self: center;
+    padding: 1rem;
 }
 
 .home-copy {
-  max-width:inherit;
-  place-self: center;
-  padding: .25rem;
+    max-width:inherit;
+    place-self: center;
+    padding: .25rem;
 }
 
 .home-copy p {

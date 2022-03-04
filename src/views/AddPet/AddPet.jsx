@@ -3,54 +3,64 @@ import Accordion from "../../components/Accordion/Accordion";
 import { useUser } from "../../context/UserContext";
 import { addContact, addPet, getPets } from "../../services/pets";
 import { useHistory } from "react-router-dom";
-import './AddPet.css'
+import "./AddPet.css";
 
 export default function AddPet() {
   const { user, setAllPets } = useUser();
   const history = useHistory();
 
-  const [pet, setPet] = useState({name:'', birthday:''});
+  const [pet, setPet] = useState({ name: "", birthday: "" });
   const [trainer, setTrainer] = useState({
     type: "trainer",
-    name: '',
-    email: '',
-    phone: '',
-    address: ''
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
   });
   const [walker, setWalker] = useState({
     type: "walker",
-    name: '',
-    email: '',
-    phone: '',
-    address: ''
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
   });
   const [vet, setVet] = useState({
     type: "vet",
-    name: '',
-    email: '',
-    phone: '',
-    address: ''
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
   });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const addedPet = await addPet({ownerId: user.ownerId, birthday: pet.birthday, name: pet.name});
+    const addedPet = await addPet({
+      ownerId: user.ownerId,
+      birthday: pet.birthday,
+      name: pet.name,
+    });
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...vet });
-    await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...trainer });
-    await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...walker });
+    await addContact({
+      petId: addedPet.petId,
+      ownerId: user.ownerId,
+      ...trainer,
+    });
+    await addContact({
+      petId: addedPet.petId,
+      ownerId: user.ownerId,
+      ...walker,
+    });
     // )
     const pets = await getPets(user.ownerId);
-    setAllPets(pets)
+    setAllPets(pets);
     history.push(`/pets?true`);
   };
 
   return (
     <section style={{ margin: "1rem" }}>
-      <form className="add-pet-form"
-        onSubmit={handleSubmit}
-      >
+      <form className="add-pet-form" onSubmit={handleSubmit}>
         <label className="add-pet-name-label">
-        <span>NAME </span>
+          <span>NAME </span>
           <input
             type="text"
             placeholder="pet name"
@@ -65,7 +75,7 @@ export default function AddPet() {
         </label>
 
         <label className="add-birthday-label">
-        <span>BIRTHDAY </span>
+          <span>BIRTHDAY </span>
           <input
             type="date"
             value={pet.birthday}
@@ -230,15 +240,19 @@ export default function AddPet() {
             </>
           }
         />
-{/* implementation for adding pet image */}
-{/* <input type="file" /> */}
-<section className="pet-page-buttons">
-        <button type="button" value="button" onClick={() => history.replace('/pets')}>
-          Cancel
-        </button>
-        <button type="submit" value="submit">
-          Save
-        </button>
+        {/* implementation for adding pet image */}
+        {/* <input type="file" /> */}
+        <section className="pet-page-buttons">
+          <button
+            type="button"
+            value="button"
+            onClick={() => history.replace("/pets")}
+          >
+            Cancel
+          </button>
+          <button type="submit" value="submit">
+            Save
+          </button>
         </section>
       </form>
     </section>

@@ -32,4 +32,5 @@ const TrainingVideos = [
     url: "b_pCbr6HM80",
   },
 ];
+
 export default TrainingVideos;
