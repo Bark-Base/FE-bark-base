@@ -34,8 +34,6 @@ export default function AddPet() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // does this need a promiseAll?
-    // await Promise.all(
     const addedPet = await addPet({ownerId: user.ownerId, birthday: pet.birthday, name: pet.name});
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...vet });
     await addContact({ petId: addedPet.petId, ownerId: user.ownerId, ...trainer });
@@ -51,8 +49,8 @@ export default function AddPet() {
       <form className="add-pet-form"
         onSubmit={handleSubmit}
       >
-        <label>
-          Name
+        <label className="add-pet-name-label">
+        <span>NAME </span>
           <input
             type="text"
             placeholder="pet name"
@@ -66,8 +64,8 @@ export default function AddPet() {
           />
         </label>
 
-        <label>
-          Birthday
+        <label className="add-birthday-label">
+        <span>BIRTHDAY </span>
           <input
             type="date"
             value={pet.birthday}
@@ -232,13 +230,16 @@ export default function AddPet() {
             </>
           }
         />
-        {/* <input type="file" /> */}
+{/* implementation for adding pet image */}
+{/* <input type="file" /> */}
+<section className="pet-page-buttons">
         <button type="button" value="button" onClick={() => history.replace('/pets')}>
           Cancel
         </button>
         <button type="submit" value="submit">
           Save
         </button>
+        </section>
       </form>
     </section>
   );

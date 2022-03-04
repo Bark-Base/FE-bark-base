@@ -11,7 +11,7 @@ margin: .1rem;
 }
 
 .active button {
-    color: rgb(253, 214, 146);
+    color: orange;
 }
 
 .horizontal-nav {
