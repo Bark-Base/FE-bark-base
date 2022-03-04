@@ -11,7 +11,6 @@ return (
     { TrainingVideos.map((video) => (<span key={video.title}>
 <h2>{video.title}</h2>
 <YoutubeEmbed embedId={video.url}/>
-{/* <div>{video.url}</div> */}
 </span>
     )
     )} 

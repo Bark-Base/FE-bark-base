@@ -1,0 +1,8 @@
+.contacts-wrapper h2 {
+    color: rgba(109, 177, 191);
+    margin-bottom: .8rem; 
+}
+.contacts-wrapper p {
+    line-height: .5rem;
+    color: white;
+}

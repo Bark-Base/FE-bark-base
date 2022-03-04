@@ -18,7 +18,7 @@ export default function NavigationBar() {
   return (
     <section className="horizontal-nav">
 <NavLink exact to="/">
-    <button>home</button>
+    <button>Home</button>
   </NavLink>
   {!user?.email ? (<NavLink  to="/auth">
     <button>Login</button>

@@ -4,10 +4,10 @@ import "./Facts.css";
 export default function Facts() {
     return (
         <section className="facts-view">
-            {PetFacts.map((fact) => (<span key={fact.title}>
+            {PetFacts.map((fact) => (<section key={fact.title}>
 <h2>{fact.title}</h2>
-<div>{fact.copy}</div>
-</span>
+<p>{fact.copy}</p>
+</section>
             )
             )} 
         </section>

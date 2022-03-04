@@ -40,10 +40,10 @@ export default function LoginSignin() {
   };
 
   return (
-    <section className='LoginSigninSection'>
-      <header>{login ? <div>Log In</div> : <div>Sign up</div>}</header>
+    <section className='log-in-section'>
+      <header>{login ? <h2>Log In</h2> : <h2>Sign up</h2>}</header>
       <form
-        className="LoginSigninForm"
+        className="log-in-sign-in-form"
         onSubmit={login ? handleLogIn : handleSignUp}
       >
         <input
@@ -65,12 +65,12 @@ export default function LoginSignin() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="" type="submit">
+        <button type="submit">
           Submit
         </button>
       </form>
       <button className="login-switch" type="button" onClick={() => setLogin(!login)}>
-        {login ? "do you need to Sign Up instead?" : "do you need to Log In instead?"}
+        {login ? "Do you need to Sign Up instead?" : "Do you need to Log In instead?"}
       </button>
       {isError==='an account with that email already exists' ? <p>{isError}</p> : null }
       {isLoading ? <h1>....Loading</h1> : null}
