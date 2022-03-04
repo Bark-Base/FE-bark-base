@@ -29,7 +29,7 @@ export default function Pets() {
   };
 
   const petPage = (
-    <section>
+    <section className="pet-page-section">
       {allPets
         .sort((a, b) => a.petId - b.petId)
         .map((pet, index) => (
@@ -42,7 +42,9 @@ export default function Pets() {
           </button>
         ))}
       <Link to="/pets/add">
-        <button type="button">Add Pet</button>
+        <button type="button" className="add-pet-btn">
+          Add Pet
+        </button>
       </Link>
       {allPets[0]?.petId && (
         <PetDetail
