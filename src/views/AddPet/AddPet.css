@@ -20,6 +20,7 @@
     display: block;
     margin: 0rem .5rem 1rem .7rem;
     justify-self: start;
+    text-transform: uppercase;
 }
 
 .add-birthday-label input {
