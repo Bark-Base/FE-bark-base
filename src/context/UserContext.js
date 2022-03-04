@@ -17,7 +17,7 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     async function getAndSetUser() {
       try {
-        setLoading(true)
+        setLoading(true);
         const currentUser = await getUser();
         setUser(currentUser);
         const pets = await getPets(currentUser.ownerId);

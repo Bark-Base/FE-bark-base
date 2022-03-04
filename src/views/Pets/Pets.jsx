@@ -1,11 +1,12 @@
-import "./Pets.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getPets, updateContacts, updatePet } from "../../services/pets";
 import { useUser } from "../../context/UserContext";
 import PetDetail from "../../components/PetDetail/PetDetail";
-import { Link } from "react-router-dom";
+import "./Pets.css";
 
 export default function Pets() {
+
   const { user, allPets, setAllPets, loading } = useUser();
   const [i, setI] = useState(allPets.length - 1);
   const [currPet, setCurrPet] = useState(allPets[0] || {});
@@ -17,13 +18,13 @@ export default function Pets() {
   const handleClick = (index) => {
     setI(index);
   };
+
   const handleSubmit = async (e, pet) => {
     e.preventDefault();
     await updatePet(pet);
     await updateContacts(pet.petId, pet.contacts[0]);
     await updateContacts(pet.petId, pet.contacts[1]);
     await updateContacts(pet.petId, pet.contacts[2]);
-
     const pets = await getPets(user.ownerId);
     setAllPets(pets);
   };

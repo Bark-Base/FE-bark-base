@@ -16,7 +16,7 @@ const TrainingVideos = [
     url: "0vtn8NhofOw",
   },
   {
-    title: "begging at the table",
+    title: "Begging at the table",
     url: "i73hoKRxL7k",
   },
   {
@@ -32,4 +32,5 @@ const TrainingVideos = [
     url: "b_pCbr6HM80",
   },
 ];
+
 export default TrainingVideos;

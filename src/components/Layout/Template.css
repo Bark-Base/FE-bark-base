@@ -23,11 +23,13 @@
     padding: .5rem;
 }
 
-.template-view header {
- font-size: 2.5rem;
- font-weight: 700;
- place-self: center;
- color: rgba(18, 17, 19, .7);
+.template-view-header {
+    font-size: 3rem;
+    font-weight: 700;
+    place-self: center;
+    color: rgba(18, 17, 19, .4);
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
 }
 
 .template-view footer {

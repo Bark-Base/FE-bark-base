@@ -11,21 +11,25 @@
 .bark-base-logo {
     grid-column: span 2;
     text-align: center;
-    font-size: 3rem;
+    font-size: 4.5rem;
+    margin-top: 3rem;
     color: rgba(18, 17, 19, .7);
+    text-shadow: 0rem 0rem 22rem black;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
 }
 
 .homepage-content {
- grid-column: 2 / 3; 
- place-content: center;
- place-self: center;
- padding: 1rem;
+    grid-column: 2 / 3; 
+    place-content: center;
+    place-self: center;
+    padding: 1rem;
 }
 
 .home-copy {
-  max-width:inherit;
-  place-self: center;
-  padding: .25rem;
+    max-width:inherit;
+    place-self: center;
+    padding: .25rem;
 }
 
 .home-copy p {

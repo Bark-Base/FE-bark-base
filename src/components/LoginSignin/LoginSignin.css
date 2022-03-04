@@ -27,12 +27,12 @@ color: rgb(243, 154, 157);
 }
 
 .log-in-sign-in-form button {
-background-color: rgba(18, 17, 19, 0);
-border: white 1px solid;
-border-radius: .2rem;
-color: white;
-padding: .5rem;
-font-weight: bold;
+    background-color: rgba(18, 17, 19, 0);
+    border: white 1px solid;
+    border-radius: .2rem;
+    color: white;
+    padding: .5rem;
+    font-weight: bold;
 }
 
 .login-switch {

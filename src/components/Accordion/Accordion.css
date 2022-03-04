@@ -1,4 +1,3 @@
-/* Style the buttons that are used to open and close the accordion panel */
 .accordion-title {
     display: flex;
     justify-content: space-between;
@@ -13,6 +12,7 @@
     font-weight: 600;
     margin-top: 1rem;
     transition: 0.4s;
+    text-transform: uppercase;
   }
   
 .accordion-title {

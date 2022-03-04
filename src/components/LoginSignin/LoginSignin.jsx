@@ -1,8 +1,8 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./LoginSignin.css";
-import { useUser } from '../../context/UserContext';
-import { signInUser, signUpUser } from '../../services/barkBaseClient';
+import { useUser } from "../../context/UserContext";
+import { signInUser, signUpUser } from "../../services/barkBaseClient";
 
 export default function LoginSignin() {
   const [userEmail, setEmail] = useState("");
@@ -11,7 +11,7 @@ export default function LoginSignin() {
   const { setUser } = useUser();
   const [isLoading, setLoading] = useState(false);
   const history = useHistory();
-  const [ isError, setError ] = useState(false);
+  const [isError, setError] = useState(false);
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -20,27 +20,27 @@ export default function LoginSignin() {
       const { user } = await signInUser(userEmail, password);
       await setUser(user);
       setLoading(false);
-      await history.replace('/');
+      await history.replace("/");
     } catch (error) {
       throw error;
     }
   };
+  
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const { user , error } = await signUpUser(userEmail, password);
+      const { user, error } = await signUpUser(userEmail, password);
       await setUser(user);
       setLoading(false);
-      error? setError(error) : await history.replace('/');
-      
+      error ? setError(error) : await history.replace("/");
     } catch (error) {
       throw error;
     }
   };
 
   return (
-    <section className='log-in-section'>
+    <section className="log-in-section">
       <header>{login ? <h2>Log In</h2> : <h2>Sign up</h2>}</header>
       <form
         className="log-in-sign-in-form"
@@ -65,14 +65,20 @@ export default function LoginSignin() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
-      <button className="login-switch" type="button" onClick={() => setLogin(!login)}>
-        {login ? "Do you need to Sign Up instead?" : "Do you need to Log In instead?"}
+      <button
+        className="login-switch"
+        type="button"
+        onClick={() => setLogin(!login)}
+      >
+        {login
+          ? "Do you need to Sign Up instead?"
+          : "Do you need to Log In instead?"}
       </button>
-      {isError==='an account with that email already exists' ? <p>{isError}</p> : null }
+      {isError === "an account with that email already exists" ? (
+        <p>{isError}</p>
+      ) : null}
       {isLoading ? <h1>....Loading</h1> : null}
     </section>
   );

@@ -14,6 +14,7 @@ export async function addPet({ ownerId, name, birthday = "", imageUrl = "" }) {
     return {};
   }
 }
+
 export async function updatePet({
   petId,
   name = "",
@@ -73,19 +74,23 @@ export async function addContact({
     return {};
   }
 }
+
 export async function getContacts(ownerId) {
   try {
-  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/contact/all/${+ownerId}`, {
-    credentials: "include",
-    method: "get",
-    mode: "cors",
-  });
-  const body  = res.json();
-  return body;
-} catch (error) {
-  console.error(error.message);
-  return [];
-}
+    const res = await fetch(
+      `${process.env.REACT_APP_BASE_URL}/api/v1/contact/all/${+ownerId}`,
+      {
+        credentials: "include",
+        method: "get",
+        mode: "cors",
+      }
+    );
+    const body = res.json();
+    return body;
+  } catch (error) {
+    console.error(error.message);
+    return [];
+  }
 }
 
 export async function getPets(ownerId) {
@@ -105,6 +110,7 @@ export async function getPets(ownerId) {
     return [];
   }
 }
+
 export async function updateContacts(
   petId,
   { contact_id, name = "", email = "", phone = "", address = "" }

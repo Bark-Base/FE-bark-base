@@ -11,13 +11,13 @@
     width: 12vh;
     border-radius: .5rem;
     border: none;
-    background-color: rgba(18, 17, 19, .75);
+    background-color: rgba(109, 177, 191, .75);
     color: white;
     font-size: 1rem;
     font-weight: 700;
 }
 
 .vert-nav button:hover {
-cursor: pointer;
-border: white 3pt solid
+    cursor: pointer;
+    border: white 3pt solid
 }

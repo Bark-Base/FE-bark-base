@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <section className="homepage">
-      <h1 className="bark-base-logo">barkbase</h1>
+      <h1 className="bark-base-logo">bark base</h1>
       <div className="homepage-content">
         {!user?.email ? (
           <article className="home-copy">
