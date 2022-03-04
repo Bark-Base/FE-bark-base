@@ -3,12 +3,11 @@
 .horizontal-nav button {
 font-size: .8rem;
 font-weight: bolder;
-/* background-color: gray; */
 color: white;
 padding: .3rem;
-/* border: 1px solid dimgray; */
 border: none;
 background-color: rgba(253, 214, 146, 0);
+margin: .1rem;
 }
 
 .active button {
@@ -16,7 +15,7 @@ background-color: rgba(253, 214, 146, 0);
 }
 
 .horizontal-nav {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-wrap: nowrap;
 }

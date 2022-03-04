@@ -16,13 +16,19 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     async function getAndSetUser() {
-      const currentUser = await getUser();
-      setUser(currentUser);
-      const pets = await getPets(currentUser.ownerId);
-      setAllPets(pets);
+      try {
+        setLoading(true)
+        const currentUser = await getUser();
+        setUser(currentUser);
+        const pets = await getPets(currentUser.ownerId);
+        setAllPets(pets);
+      } catch (error) {
+        console.error(error.message);
+      } finally {
+        setLoading(false);
+      }
     }
     getAndSetUser();
-    setLoading(false);
   }, []);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

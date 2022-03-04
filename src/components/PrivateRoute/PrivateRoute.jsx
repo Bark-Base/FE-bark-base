@@ -1,9 +1,11 @@
-import { Redirect, Route } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
+import { Redirect, Route } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
 
 export default function PrivateRoute({ children, ...rest }) {
-    const {user, loading} = useUser()
-  return (
+  const { user, loading } = useUser();
+  return loading ? (
+    <h2>"nah, we loading"</h2>
+  ) : (
     <Route
       {...rest}
       render={({ location }) =>
@@ -12,7 +14,7 @@ export default function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: '/auth',
+              pathname: "/auth",
               state: { from: location },
             }}
           />

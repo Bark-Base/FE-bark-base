@@ -25,6 +25,7 @@
 .home-copy {
   max-width:inherit;
   place-self: center;
+  padding: .25rem;
 }
 
 .home-copy p {

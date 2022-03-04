@@ -1,15 +1,11 @@
-/* .facts-view {
-    overflow-y: scroll;
-} */
-
 .facts-view {
-    padding: 1rem;
+    padding: 1rem 2.5rem;
     color: white;
 }
 
 .facts-view h2 {
     color: rgba(109, 177, 191);
-    margin: 0;
+    margin-bottom: .5rem;
 }
 .facts-view section > p {
     margin-top: .2rem;

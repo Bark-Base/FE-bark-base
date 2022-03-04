@@ -7,10 +7,9 @@
 
 .vert-nav button {
     margin: .5rem;
-    height: 6rem;
-    width: 6rem;
+    height: 14vh;
+    width: 14vh;
     border-radius: .5rem;
-    /* border: rgb(31, 3, 23) solid 1px; */
     border: none;
     background-color: rgba(18, 17, 19, .75);
     color: white;

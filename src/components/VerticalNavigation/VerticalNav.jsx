@@ -35,7 +35,6 @@ export default function VerticalNav() {
       {user?.email ? (
         <button onClick={() => handleClick("/contacts")}>Contacts</button>
       ) : null}
-
       {!user.email ? (
         <button onClick={() => handleClick("/auth")}>Log In</button>
       ) : (
