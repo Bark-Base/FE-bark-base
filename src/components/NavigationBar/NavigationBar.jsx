@@ -3,7 +3,7 @@ import { useUser } from "../../context/UserContext";
 import "./NavigationBar.css";
 
 export default function NavigationBar() {
-  const { user, setUser } = useUser();
+  const { user, setUser, setAllPets } = useUser();
 
   const handleLogout = async () => {
     await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/session`, {
@@ -12,6 +12,7 @@ export default function NavigationBar() {
       method: "DELETE",
     });
     setUser({});
+    setAllPets([]);
   };
 
   return (
