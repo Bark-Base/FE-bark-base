@@ -17,7 +17,7 @@ export default function Home() {
             </p>
             <h2>Pet misbehaving?</h2>{" "}
             <p>
-              Training Videos has resources for training new pets and naughty pets alike.
+              Training Videos for your new pet or naughty pet.
             </p>
             <h2>Click Login</h2>
             <p>
