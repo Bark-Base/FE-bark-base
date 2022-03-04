@@ -4,7 +4,7 @@ import "./VerticalNav.css";
 import { useState, useEffect } from "react";
 
 export default function VerticalNav() {
-  const { user, setUser } = useUser();
+  const { user, setUser, setAllPets } = useUser();
   const history = useHistory();
   const [isLoading, setLoading] = useState(false);
 
@@ -24,6 +24,7 @@ export default function VerticalNav() {
       method: "delete",
     });
     setUser({});
+    setAllPets([]);
   };
 
   return (

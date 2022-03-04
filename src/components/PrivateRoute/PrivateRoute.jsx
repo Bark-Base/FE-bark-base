@@ -14,7 +14,7 @@ export default function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/auth",
+              pathname: "/",
               state: { from: location },
             }}
           />
