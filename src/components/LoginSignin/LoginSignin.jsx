@@ -19,7 +19,7 @@ export default function LoginSignin() {
     try {
       setLoading(true);
       const { user } = await signInUser(userEmail, password);
-      await setUser(user);
+      setUser(user);
       const pets = await getPets(user.ownerId);
       setAllPets(pets);
       setLoading(false);
