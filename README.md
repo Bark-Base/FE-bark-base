@@ -5,10 +5,10 @@ Bark Base is an app for new pet owners to locate training resources, pet ownersh
 ## Team
 
 Daniel Gilles
-Full-Stack Software Engineer 
-https://www.linkedin.com/in/daniel-gilles/
+* Full-Stack Software Engineer 
+* https://www.linkedin.com/in/daniel-gilles/
 
 Karl Sigel
-Full Stack Web Developer specializing in React, Express & PostgreSQL
-heykarl@gmail.com
-https://www.linkedin.com/in/developer-karl/
+* Full Stack Web Developer specializing in React, Express & PostgreSQL
+* heykarl@gmail.com
+* https://www.linkedin.com/in/developer-karl/
