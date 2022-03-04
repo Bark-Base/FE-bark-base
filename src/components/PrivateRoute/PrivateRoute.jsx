@@ -1,8 +1,8 @@
 import { Redirect, Route } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 
-export function PrivateRoute({ children, ...rest }) {
-    const {user} = useUser
+export default function PrivateRoute({ children, ...rest }) {
+    const {user, loading} = useUser()
   return (
     <Route
       {...rest}

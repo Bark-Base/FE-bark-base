@@ -21,13 +21,11 @@ export default function Contacts() {
         {user.ownerId ? (
           contacts?.map((contact) => (
             <div key={contact.contactId}>
-              <h1 className="contact-type">{contact.type}</h1>
-              <p className="contact-field" >
-                {contact.name}
-              </p>
-              <p className="contact-field">{contact?.phone}</p>
-              <p className="contact-field">{contact?.email}</p>
-              <p className="contact-field">{contact?.address}</p>
+              <h2>{contact.type}</h2>
+              <p>{contact.name}</p>
+              <p>{contact?.phone}</p>
+              <p>{contact?.email}</p>
+              <p>{contact?.address}</p>
             </div>
           ))
         ) : (

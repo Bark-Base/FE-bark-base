@@ -1,25 +1,45 @@
-.LoginSigninSection { 
+.log-in-section { 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
     margin: 2rem;
 }
 
-.LoginSigninForm {
+.log-in-section h2 {
+color: rgb(243, 154, 157);
+}
+
+.log-in-sign-in-form * {
+    margin: .5rem 0 .5rem 0;
+}
+
+.log-in-sign-in-form {
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: center;
 }
 
+.log-in-sign-in-form input {
+    border-radius: .1rem;
+    border: none;
+    padding: .5rem;
+}
+
+.log-in-sign-in-form button {
+background-color: rgba(18, 17, 19, 0);
+border: white 1px solid;
+border-radius: .2rem;
+color: white;
+padding: .5rem;
+font-weight: bold;
+}
+
 .login-switch {
     margin-top: 4rem;
     font-weight: bolder;
-    color: white;
+    font-size: 1rem;
+    color: rgb(243, 154, 157);
     border: none;
     background: none;
-}
-
-.LoginSigninForm * {
-    margin: .5rem 0 .5rem 0;
 }

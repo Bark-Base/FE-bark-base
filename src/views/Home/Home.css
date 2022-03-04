@@ -3,29 +3,39 @@
     min-width: 100vw;
     display: inline-grid;
     grid-template-rows: 15vh 85vh;    
-    grid-template-columns: 50vw 50vw;  
-    grid-template-areas: 
-    "logo logo" 
-    ". nav";
+    grid-template-columns: 50vw 50vw;
     background-image: url('../../assets/IMG_49861.jpg');
     background-size: cover;
 }
 
-.barkbase-logo {
+.bark-base-logo {
     grid-column: span 2;
     text-align: center;
     font-size: 3rem;
+    color: rgba(18, 17, 19, .7);
 }
 
 .homepage-content {
- grid-column-start: 2; 
- justify-items:center
+ grid-column: 2 / 3; 
+ place-content: center;
+ place-self: center;
+ padding: 1rem;
 }
 
-.temp-text {
-    font-size: smaller;
+.home-copy {
+  max-width:inherit;
+  place-self: center;
 }
 
-.temp-text h3 {
+.home-copy p {
+    font-size: .75rem;
+    margin-top: .1rem;
+    color: rgb(18, 17, 19);
+}
+
+.home-copy h2 {
     margin-bottom: 0;
+    color: rgb(109, 177, 191);
+    font-size: 1.1rem;
+    font-weight: 800;
 }

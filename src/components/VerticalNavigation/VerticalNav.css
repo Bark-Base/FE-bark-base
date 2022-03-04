@@ -1,6 +1,7 @@
 .vert-nav {
     display: flex;
     flex-direction: column;
+    max-width: fit-content;
     margin: 1rem;
 }
 
@@ -9,10 +10,12 @@
     height: 6rem;
     width: 6rem;
     border-radius: .5rem;
-    border: dimgray solid 1px;
-    background-color: rgba(11, 11, 11, .5);
+    /* border: rgb(31, 3, 23) solid 1px; */
+    border: none;
+    background-color: rgba(18, 17, 19, .75);
     color: white;
     font-size: 1rem;
+    font-weight: 700;
 }
 
 .vert-nav button:hover {

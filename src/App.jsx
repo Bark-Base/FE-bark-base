@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Template from "./components/Layout/Template";
-// import NavigationBar from "./components/NavigationBar/NavigationBar";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AddPet from "./views/AddPet/AddPet";
 import AuthView from "./views/AuthView/AuthView";
 import Contacts from "./views/Contacts/Contacts";
@@ -33,21 +33,21 @@ function App() {
             <Facts />
           </Template>
         </Route>
-        <Route exact path={"/pets"}>
+        <PrivateRoute exact path={"/pets"}>
           <Template header={'My Pets'}>
             <Pets />
           </Template>
-        </Route>
-        <Route exact path={"/pets/add"}>
+        </PrivateRoute>
+        <PrivateRoute exact path={"/pets/add"}>
           <Template header={'Add a Pet'}>
             <AddPet />
           </Template>
-        </Route>
-        <Route path={"/contacts"}>
+        </PrivateRoute>
+        <PrivateRoute path={"/contacts"}>
           <Template header={'Contacts'}>
             <Contacts />
           </Template>
-        </Route>
+        </PrivateRoute>
       </Switch>
     </Router>
   );

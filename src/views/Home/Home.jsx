@@ -7,33 +7,24 @@ export default function Home() {
 
   return (
     <section className="homepage">
-      <h1 className="barkbase-logo">barkbase</h1>
+      <h1 className="bark-base-logo">barkbase</h1>
       <div className="homepage-content">
-
-
         {!user?.email ? (
-          <article className="temp-text">
-            <h3>New Pet owner? </h3>
-            <span>
-              Go to Facts to get the info you need to keep your pet (and
-              yourself) happy.
-            </span>{" "}
-            <br />
-            <h3>Pet misbehaving?</h3>{" "}
-            <span>
-              Go to Training for great videos on how to tame that pet.
-            </span>
-            <br />
-            <h3>Click Login</h3>
-            <span>
-              {" "}
-              to make an account so you can keep track of your pet's health and
-              contacts.
-            </span>
+          <article className="home-copy">
+            <h2>New Pet owner </h2>
+            <p>
+              Pet Facts has valuable info you need to keep your pet healthy and happy.
+            </p>
+            <h2>Pet misbehaving?</h2>{" "}
+            <p>
+              Training Videos has resources for training new pets and naughty pets alike.
+            </p>
+            <h2>Click Login</h2>
+            <p>
+              And create an account so you can keep track of your pet's info on the fly.
+            </p>
           </article>
         ) : null}
-
-
         <VerticalNav />
       </div>
     </section>
