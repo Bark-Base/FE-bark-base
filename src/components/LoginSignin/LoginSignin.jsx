@@ -3,12 +3,13 @@ import { useState } from "react";
 import "./LoginSignin.css";
 import { useUser } from "../../context/UserContext";
 import { signInUser, signUpUser } from "../../services/barkBaseClient";
+import { getPets } from "../../services/pets";
 
 export default function LoginSignin() {
   const [userEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(true);
-  const { setUser } = useUser();
+  const { setUser, setAllPets } = useUser();
   const [isLoading, setLoading] = useState(false);
   const history = useHistory();
   const [isError, setError] = useState(false);
@@ -19,6 +20,8 @@ export default function LoginSignin() {
       setLoading(true);
       const { user } = await signInUser(userEmail, password);
       await setUser(user);
+      const pets = await getPets(user.ownerId);
+      setAllPets(pets);
       setLoading(false);
       await history.replace("/");
     } catch (error) {
