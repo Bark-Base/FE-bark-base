@@ -13,7 +13,7 @@ export default function Contacts() {
       setContacts(contactFetch);
     }
     getAllContacts();
-  }, [contacts, user.ownerId]);
+  }, [user.ownerId]);
 
   return (
     <section>
