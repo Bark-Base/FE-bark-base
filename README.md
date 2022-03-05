@@ -12,3 +12,5 @@ Karl Sigel
 * Full Stack Web Developer specializing in React, Express & PostgreSQL
 * heykarl@gmail.com
 * https://www.linkedin.com/in/developer-karl/
+
+Planning link: https://miro.com/app/board/uXjVOLciK10=/?invite_link_id=735417824418
