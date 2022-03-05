@@ -3,13 +3,13 @@ import { useUser } from "../../context/UserContext";
 import "./Home.css";
 
 export default function Home() {
-  const { user } = useUser();
+  const { user } = useUser();  
 
   return (
     <section className="homepage">
       <h1 className="bark-base-logo">bark base</h1>
       <div className="homepage-content">
-        {!user?.email ? (
+        {!user.email ? (
           <article className="home-copy">
             <h2>New Pet owner </h2>
             <p>
